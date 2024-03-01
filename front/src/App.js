@@ -1,4 +1,3 @@
-import './App.css';
 import { Creational } from './features/creational/components/Creational.tsx';
 
 function App() {

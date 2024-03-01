@@ -6,22 +6,30 @@ interface DishModel extends ChildrenInterface {
   name: String;
   ingredients: Array<String>;
   difficulty: DishDifficult;
-  clicked: () => void;
+  onClick: () => void;
 }
 
-export const Dish: React.FC<DishModel> = ({ name, ingredients, difficulty, clicked }) => {
+export const Dish: React.FC<DishModel> = ({ name, ingredients, difficulty, onClick }) => {
   return (
     <>
-      <h3>{name}</h3>
-      <ul>
-        {ingredients.map((ingredient: String) => (
-          <li>{ingredient}</li>
-        ))}
-      </ul>
-      <span>
-        <strong>Difficult: {difficulty}</strong>
-      </span>
-      <button onClick={() => clicked}>Show</button>
+      <section className="card">
+        <div className="card__header">
+          <h3>{name}</h3>
+        </div>
+        <div className="card__content">
+          <ul>
+            {ingredients.map((ingredient: String, index) => (
+              <li key={index}>{ingredient}</li>
+            ))}
+          </ul>
+          <span>
+            <strong>Difficult: {difficulty}</strong>
+          </span>
+        </div>
+        <button className="pattern__button" onClick={() => onClick()}>
+          Show
+        </button>
+      </section>
     </>
   );
 };
@@ -31,21 +39,21 @@ export const HamburgerDish: React.FC = () => {
   const clicked = () => {
     alert('Is a Hamburguer');
   };
-  return <Dish name="Hamburguesa" ingredients={ingredients} difficulty="Hard" clicked={clicked} />;
+  return <Dish name="Hamburguesa" ingredients={ingredients} difficulty="Hard" onClick={clicked} />;
 };
 export const SpaghettiDish: React.FC = () => {
   const ingredients: Array<String> = ['Spaghetti', 'Milk', 'Cheese', 'Some sauce', 'Some meat'];
   const clicked = () => {
     alert('Jmm Spaghetti');
   };
-  return <Dish name="Spaghetti" ingredients={ingredients} difficulty="Easy" clicked={clicked} />;
+  return <Dish name="Spaghetti" ingredients={ingredients} difficulty="Easy" onClick={clicked} />;
 };
 export const PizzaDish: React.FC = () => {
   const ingredients: Array<String> = ['Cheese', 'Tomato', 'Cheese', 'Bulk', 'Peperoni', 'Salami'];
   const clicked = () => {
     alert('Is Pizza!');
   };
-  return <Dish name="Pizza" ingredients={ingredients} difficulty="Hard" clicked={clicked} />;
+  return <Dish name="Pizza" ingredients={ingredients} difficulty="Hard" onClick={clicked} />;
 };
 
 interface DishFactory {
@@ -75,7 +83,7 @@ export enum DishEnum {
 }
 export type DishType = 'PIZZA' | 'HAMBURGUER' | 'SPAGHETTI';
 
-export const useCreateFactory = (type: DishType): React.FC => {
+export const createFactory = (type: DishType): React.FC => {
   const factories = {
     PIZZA: PizzaFactory(),
     HAMBURGUER: HamburguerFactory(),

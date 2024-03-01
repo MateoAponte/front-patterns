@@ -7,13 +7,13 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
-    <section>
-      <h1>{title}</h1>
-      <hr />
-      <div>
-        <h3>Example:</h3>
-        {children}
-      </div>
-    </section>
+    <>
+      <section className="section-patterns">
+        <h1 className="section-patterns__title">{title}</h1>
+        <hr className="section-patterns__divider" />
+        <h3 className="section-patterns__example">Example:</h3>
+        <div className="section-patterns__content">{children}</div>
+      </section>
+    </>
   );
 };
