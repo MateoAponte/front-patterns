@@ -1,6 +1,9 @@
 import React from 'react';
 import { ChildrenInterface } from '../../../common/interfaces/ChildrenInterface';
+import { Card, CardContent, CardFooter, CardHeader } from '../../../common/components/Card.tsx';
 import { DishDifficult } from '../types/DishDifficult';
+import { PTButton } from '../../../common/components/Button.tsx';
+import { Text } from '../../../common/components/Text.tsx';
 
 interface DishModel extends ChildrenInterface {
   name: String;
@@ -12,24 +15,24 @@ interface DishModel extends ChildrenInterface {
 export const DishBase: React.FC<DishModel> = ({ name, ingredients, difficulty, onClick }) => {
   return (
     <>
-      <section className="card">
-        <div className="card__header">
-          <h3>{name}</h3>
-        </div>
-        <div className="card__content">
+      <Card>
+        <CardHeader>
+          <Text text={name} type="heading" modifier="bolder" />
+        </CardHeader>
+        <CardContent>
           <ul>
             {ingredients.map((ingredient: String, index) => (
-              <li key={index}>{ingredient}</li>
+              <Text key={index} text={ingredient} type="list" />
             ))}
           </ul>
-          <span>
-            <strong>Difficult: {difficulty}</strong>
-          </span>
-        </div>
-        <button className="pattern__button" onClick={() => onClick()}>
-          Show
-        </button>
-      </section>
+          <Text text={`Difficult: ${difficulty}`} type="common" modifier="bolder" />
+        </CardContent>
+        <CardFooter>
+          <PTButton type="large" onClick={() => onClick()}>
+            <Text text="Do something" type="common" modifier="bolder" />
+          </PTButton>
+        </CardFooter>
+      </Card>
     </>
   );
 };

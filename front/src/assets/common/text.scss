@@ -1,0 +1,60 @@
+.ptn-text {
+  &--heading {
+    font-size: 1.2rem;
+  }
+  &--list {
+    margin-left: 1rem;
+    display: list-item;
+    list-style: disc;
+  }
+  &--bolder {
+    font-weight: 600;
+  }
+  &--italic {
+    font-style: italic;
+  }
+  &--subline {
+    text-decoration: underline;
+  }
+  &--linethrough {
+    text-decoration: line-through;
+  }
+
+  &--h1 {
+    font-size: 2.15rem;
+  }
+  &--h2 {
+    font-size: 1.85rem;
+  }
+  &--h3 {
+    font-size: 1.5rem;
+  }
+  &--h4 {
+    font-size: 1.25rem;
+  }
+  &--h5 {
+    font-size: 0.95rem;
+  }
+  &--h6 {
+    font-size: 0.65rem;
+  }
+
+  &--bolder {
+    font-weight: 600 !important;
+  }
+  &--spaced-1 {
+    margin: 0.5rem 0 !important;
+  }
+  &--spaced-2 {
+    margin: 1rem 0 !important;
+  }
+  &--spaced-3 {
+    margin: 1.5rem 0 !important;
+  }
+  &--spaced-4 {
+    margin: 2rem 0 !important;
+  }
+  &--spaced-5 {
+    margin: 2.5rem 0 !important;
+  }
+}

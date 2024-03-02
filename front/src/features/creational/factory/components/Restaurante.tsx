@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import { Section } from '../../../common/components/Section.tsx';
 import { createFactory } from './createFactory.ts';
+import { Column } from '../../../common/components/Column.tsx';
+import { PTButton } from '../../../common/components/Button.tsx';
+import { Text } from '../../../common/components/Text.tsx';
 
 interface ColumnCreation {
   title: String;
   createEl: () => React.ReactNode;
 }
 
-export const Column: React.FC<ColumnCreation> = ({ title, createEl }) => {
+export const ColumnRestaurant: React.FC<ColumnCreation> = ({ title, createEl }) => {
   const [components, setComponents] = useState(Array<React.ReactNode>);
   const addComponent = () => {
     const newComponent = createEl();
     setComponents((prevComponents) => [...prevComponents, newComponent]);
   };
   return (
-    <section className="column">
+    <Column>
       <h1 className="column__title">{title}</h1>
-      <button className="pattern__button column__button" onClick={() => addComponent()}>
-        Crear :D
-      </button>
+      <PTButton onClick={() => addComponent()} type="large">
+        <Text text="Crear" type="common" modifier="bolder" />
+      </PTButton>
       <div className="column__content">{components}</div>
-    </section>
+    </Column>
   );
 };
 
@@ -28,9 +31,9 @@ export const FactoryMethod: React.FC = () => {
   return (
     <>
       <Section title={'Factory Method'}>
-        <Column title="Pizza" createEl={createFactory('PIZZA')}></Column>
-        <Column title="Hamburguer" createEl={createFactory('HAMBURGUER')}></Column>
-        <Column title="Spaghetti" createEl={createFactory('SPAGHETTI')}></Column>
+        <ColumnRestaurant title="Pizza" createEl={createFactory('PIZZA')}></ColumnRestaurant>
+        <ColumnRestaurant title="Hamburguer" createEl={createFactory('HAMBURGUER')}></ColumnRestaurant>
+        <ColumnRestaurant title="Spaghetti" createEl={createFactory('SPAGHETTI')}></ColumnRestaurant>
       </Section>
     </>
   );
