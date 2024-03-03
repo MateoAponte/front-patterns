@@ -22,6 +22,22 @@ export const ROUTES: Array<RoutesModel> = [
         path: 'factory',
         component: Factory,
       },
+      {
+        path: 'abstract',
+        component: Factory,
+      },
+      {
+        path: 'singleton',
+        component: Factory,
+      },
+      {
+        path: 'prototype',
+        component: Factory,
+      },
+      {
+        path: 'builder',
+        component: Factory,
+      },
     ],
   },
   {
@@ -31,5 +47,6 @@ export const ROUTES: Array<RoutesModel> = [
 ];
 
 export const getType = (type: string): Array<RoutesModel> => {
-  return ROUTES.filter((route: RoutesModel) => route.path.indexOf(type) !== -1)[0].nested || [];
+  const routes = ROUTES.filter((route: RoutesModel) => route.path.indexOf(type) !== -1)[0].nested || [];
+  return routes.filter((items: RoutesModel) => !!items.path);
 };

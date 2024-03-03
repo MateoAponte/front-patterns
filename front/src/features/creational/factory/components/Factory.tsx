@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Section } from '../../../common/components/Section.tsx';
+import { PTSection } from '../../../common/layouts/PTSection.tsx';
 import { createFactory } from './createFactory.ts';
 import { Column } from '../../../common/components/Column.tsx';
 import { PTButton } from '../../../common/components/Button.tsx';
 import { Text } from '../../../common/components/Text.tsx';
+import { PTRow } from '../../../common/components/PTRow.tsx';
 
 interface ColumnCreation {
   title: String;
@@ -30,11 +31,13 @@ export const ColumnRestaurant: React.FC<ColumnCreation> = ({ title, createEl }) 
 export const Factory: React.FC = () => {
   return (
     <>
-      <Section title={'Factory Method'}>
-        <ColumnRestaurant title="Pizza" createEl={createFactory('PIZZA')}></ColumnRestaurant>
-        <ColumnRestaurant title="Hamburguer" createEl={createFactory('HAMBURGUER')}></ColumnRestaurant>
-        <ColumnRestaurant title="Spaghetti" createEl={createFactory('SPAGHETTI')}></ColumnRestaurant>
-      </Section>
+      <PTSection title={'Factory Method'}>
+        <PTRow perRow="3-item">
+          <ColumnRestaurant title="Pizza" createEl={createFactory('PIZZA')}></ColumnRestaurant>
+          <ColumnRestaurant title="Hamburguer" createEl={createFactory('HAMBURGUER')}></ColumnRestaurant>
+          <ColumnRestaurant title="Spaghetti" createEl={createFactory('SPAGHETTI')}></ColumnRestaurant>
+        </PTRow>
+      </PTSection>
     </>
   );
 };

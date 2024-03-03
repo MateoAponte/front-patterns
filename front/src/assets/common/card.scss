@@ -5,12 +5,13 @@
   padding: 20px;
   margin-bottom: 20px;
   width: 100%;
+  margin: 1rem;
   &__header {
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
     width: 100%;
     font-size: 1.2rem;
-    padding: 0.8rem 0px;
+    padding: 0px 0.8rem 0.8rem 0;
   }
   &__content {
     text-align: left;

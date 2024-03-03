@@ -13,7 +13,7 @@ export const CardFooter = ({ children }) => {
 export const Card = ({ children }) => {
   return (
     <>
-      <section className="card">{children}</section>
+      <div className="card">{children}</div>
     </>
   );
 };
