@@ -1,5 +1,5 @@
 import React from 'react';
-import { PTSection } from '../../common/layouts/PTSection.tsx';
+import { PTSection } from '../../common/components/PTSection.tsx';
 import { Link } from 'react-router-dom';
 import { PTRow } from '../../common/components/PTRow.tsx';
 import { RoutesModel, getType } from '../../common/router/RouterInfo.ts';

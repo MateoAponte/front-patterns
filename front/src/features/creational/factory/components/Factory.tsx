@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PTSection } from '../../../common/layouts/PTSection.tsx';
+import { PTSection } from '../../../common/components/PTSection.tsx';
 import { createFactory } from './createFactory.ts';
 import { Column } from '../../../common/components/Column.tsx';
 import { PTButton } from '../../../common/components/Button.tsx';

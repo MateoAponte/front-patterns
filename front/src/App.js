@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { ROUTES } from './features/common/router/RouterInfo.ts';
+import { SideBar } from './features/common/layouts/SideBar.tsx';
 
 const renderRoutes = (routes) => {
   return routes.map((route, index) => (
@@ -21,13 +22,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {ROUTES.map((item, index) => (
-          <NavLink key={index} to={item.path}>
-            {item.path}
-          </NavLink>
-        ))}
-        <Routes>{renderRoutes(ROUTES)}</Routes>
-        <Outlet />
+        <SideBar />
+        <main>
+          <Routes>{renderRoutes(ROUTES)}</Routes>
+          <Outlet />
+        </main>
       </div>
     </BrowserRouter>
   );
