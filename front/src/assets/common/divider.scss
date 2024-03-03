@@ -1,0 +1,12 @@
+.ptn-divider {
+  background: #ccc;
+  margin: 20px 0;
+  &--horizontal {
+    height: 1px;
+    width: 100%;
+  }
+  &--vertical {
+    height: 100%;
+    width: 1px;
+  }
+}

@@ -27,7 +27,7 @@ export const ColumnRestaurant: React.FC<ColumnCreation> = ({ title, createEl }) 
   );
 };
 
-export const FactoryMethod: React.FC = () => {
+export const Factory: React.FC = () => {
   return (
     <>
       <Section title={'Factory Method'}>

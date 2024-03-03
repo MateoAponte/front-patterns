@@ -1,8 +1,8 @@
 .column {
-  width: 100%;
   padding: 0px 24px;
   display: flex;
   flex-direction: column;
+  flex: 1;
   &__content {
     margin-top: 16px;
   }
