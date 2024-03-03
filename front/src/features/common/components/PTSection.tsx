@@ -6,14 +6,17 @@ interface PanelModel {
   children: React.ReactNode;
   title: String;
   description?: String;
+  isMainTitle?: Boolean;
 }
 
-export const PTSection: React.FC<PanelModel> = ({ children, title, description }) => {
+export const PTSection: React.FC<PanelModel> = ({ children, title, description, isMainTitle }) => {
   return (
     <div className="ptn-section">
-      <Text text={title} type="heading" spaced="spaced-1" heading="h3" modifier="bolder" />
+      <div className={isMainTitle && 'ptn-section__header'}>
+        <Text text={title} type="heading" spaced="spaced-1" heading="h3" modifier="bolder" />
+      </div>
       {description && <Text text={description} type="common" spaced="spaced-3" />}
-      <Divider orientation="horizontal" />
+      {!isMainTitle && <Divider orientation="horizontal" />}
       <div className="ptn-section__content">{children}</div>
     </div>
   );

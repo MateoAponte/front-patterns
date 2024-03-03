@@ -11,7 +11,7 @@ export const CreationalMain: React.FC = () => {
 
   return (
     <>
-      <PTSection title="Patrones creacionales" description="Some">
+      <PTSection title="Patrones creacionales" description="Some" isMainTitle>
         <PTRow perRow="3-item">
           {creationalRoutes.map((item: RoutesModel, index) => (
             <Card key={index}>

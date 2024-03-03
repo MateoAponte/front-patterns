@@ -7,7 +7,7 @@ interface DividerModel {
 }
 
 export const Divider: React.FC<DividerModel> = ({ orientation }) => {
-  const orientationClass = orientation ? 'ptn--orientation' : '';
+  const orientationClass = orientation ? 'ptn-divider--' + orientation : '';
   return (
     <>
       <hr className={`ptn-divider ${orientationClass}`} />

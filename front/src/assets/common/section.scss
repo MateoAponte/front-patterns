@@ -1,0 +1,37 @@
+.ptn-section {
+  padding: 1.5rem;
+
+  &__content {
+    padding: 0 0.5rem;
+  }
+
+  &__header {
+    font-weight: bold;
+    color: #333; /* Color oscuro para el texto */
+    text-transform: uppercase; /* Convertir texto en mayúsculas */
+    position: relative; /* Posición relativa para los pseudoelementos */
+    background-color: #525252;
+    padding: 0.5rem 2rem;
+    color: #fff;
+    left: -1.5rem;
+    margin-bottom: 2rem;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 0px;
+      width: 50%;
+      height: 3px;
+      background-color: #525252; /* Color del elemento */
+    }
+    &::after {
+      content: ''; /* Contenido vacío */
+      position: absolute; /* Posición absoluta para superponer */
+      bottom: -5px;
+      right: 0%;
+      width: 50%;
+      height: 3px;
+      background-color: #525252; /* Color del elemento */
+    }
+  }
+}

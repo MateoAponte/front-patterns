@@ -1,4 +1,6 @@
 .ptn-text {
+  line-height: 2rem;
+  font-size: 1.1rem;
   &--heading {
     font-size: 1.2rem;
   }
@@ -56,5 +58,12 @@
   }
   &--spaced-5 {
     margin: 2.5rem 0 !important;
+  }
+
+  &--highlight {
+    color: #348587; /* Color de texto claro para contrastar */
+    font-weight: 500;
+    border-radius: 2px; /* Bordes redondeados */
+    display: inline-block; /* Mostrar como bloque en línea */
   }
 }

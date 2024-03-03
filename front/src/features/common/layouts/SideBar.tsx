@@ -8,7 +8,7 @@ export const SideBar = () => {
   return (
     <>
       <nav className="ptn-sidebar">
-        <Text text="Patterns" type="heading" modifier="bolder" spaced="spaced-1" />
+        <Text text="Patterns" type="heading" modifier="bolder" spaced="spaced-1" tag="h1" />
         {mainRoutes.map((item, index) => (
           <NavLink className="ptn-sidebar__item" key={index} to={item.path}>
             {RoutesDictionary[item.path]}

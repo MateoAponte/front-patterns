@@ -11,12 +11,20 @@ interface TextModel {
   modifier?: TextModifier;
   spaced?: TextSpaced;
   heading?: Headings;
+  isHighlight?: Boolean;
+  tag?: String;
 }
 
-export const Text: React.FC<TextModel> = ({ text, type, modifier, spaced, heading }) => {
+export const Text: React.FC<TextModel> = ({ text, type, modifier, spaced, heading, isHighlight, tag }) => {
   const getType = type ? 'ptn-text--' + type : '';
   const getModifier = modifier ? 'ptn-text--' + modifier : '';
   const getSpaced = spaced ? 'ptn-text--' + spaced : '';
   const getHeading = heading ? 'ptn-text--' + heading : '';
-  return <p className={`ptn-text ${getType} ${getModifier} ${getSpaced} ${getHeading}`}>{text}</p>;
+  const getHighlight = isHighlight ? 'ptn-text--highlight' : '';
+  const CustomTag = `${tag}` as keyof JSX.IntrinsicElements;
+  return <CustomTag className={`ptn-text ${getType} ${getModifier} ${getSpaced} ${getHeading} ${getHighlight}`}>{text}</CustomTag>;
+};
+
+Text.defaultProps = {
+  tag: 'span',
 };
