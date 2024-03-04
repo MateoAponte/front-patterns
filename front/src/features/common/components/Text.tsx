@@ -13,16 +13,21 @@ interface TextModel {
   heading?: Headings;
   isHighlight?: Boolean;
   tag?: String;
+  children?: React.ReactNode;
 }
 
-export const Text: React.FC<TextModel> = ({ text, type, modifier, spaced, heading, isHighlight, tag }) => {
+export const Text: React.FC<TextModel> = ({ text, type, modifier, spaced, heading, isHighlight, tag, children }) => {
   const getType = type ? 'ptn-text--' + type : '';
   const getModifier = modifier ? 'ptn-text--' + modifier : '';
   const getSpaced = spaced ? 'ptn-text--' + spaced : '';
   const getHeading = heading ? 'ptn-text--' + heading : '';
   const getHighlight = isHighlight ? 'ptn-text--highlight' : '';
   const CustomTag = `${tag}` as keyof JSX.IntrinsicElements;
-  return <CustomTag className={`ptn-text ${getType} ${getModifier} ${getSpaced} ${getHeading} ${getHighlight}`}>{text}</CustomTag>;
+  return (
+    <CustomTag className={`ptn-text ${getType} ${getModifier} ${getSpaced} ${getHeading} ${getHighlight}`}>
+      {text} {children}
+    </CustomTag>
+  );
 };
 
 Text.defaultProps = {

@@ -1,0 +1,41 @@
+.ptn-canvas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.ptn-shape {
+  border: 2px solid #636262;
+  width: 80px;
+  height: 80px;
+  margin: 1rem 0;
+  &__square {
+    background-color: #f5785c;
+  }
+  &__triangle {
+    border: 0px;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid #61c284;
+    position: relative;
+    z-index: 5;
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      left: -40px;
+      right: 0;
+      top: 40px;
+      bottom: 0;
+      margin: auto;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 82px solid #636262;
+    }
+  }
+  &__circle {
+    background-color: #7163b4;
+    border-radius: 50%;
+  }
+}

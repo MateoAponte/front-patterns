@@ -22,15 +22,15 @@ flowchart TB
 `;
 const example = `
 flowchart LR
-  A[Restaurant]
-  A -. Use .-> B[DishesFactory]
-  B -. Depends .-> C[Dish]
-  BA[BurguerFactory] ---> B
-  BB[PizzaFactory] ---> B
-  BC[SpaghettiFactory] ---> B
-  CA[HamburgerDish] --> C
-  CB[PizzaDish] --> C
-  CC[SpaghettiDish] --> C
+  A[Canvas]
+  A -. Use .-> B[ShapesFactory]
+  B -. Depends .-> C[Shape]
+  BA[CircleFactory] ---> B
+  BB[SquareFactory] ---> B
+  BC[TriangleFactory] ---> B
+  CA[CircleShape] --> C
+  CB[SquareShape] --> C
+  CC[TriangleShape] --> C
   subgraph Relations
   BA -.-> CA
   BB -.-> CB
@@ -43,7 +43,7 @@ interface ColumnCreation {
   createEl: () => React.ReactNode;
 }
 
-export const ColumnRestaurant: React.FC<ColumnCreation> = ({ title, createEl }) => {
+export const ColumnElement: React.FC<ColumnCreation> = ({ title, createEl }) => {
   const [components, setComponents] = useState(Array<React.ReactNode>);
   const addComponent = () => {
     const newComponent = createEl();
@@ -63,16 +63,20 @@ export const ColumnRestaurant: React.FC<ColumnCreation> = ({ title, createEl }) 
 export const Factory: React.FC = () => {
   return (
     <>
-      <PTSection title={'Factory Method'} isMainTitle>
+      <PTSection title={'Factory Method'} headingType="header">
         <PTRow perRow="2-item" verticalAligment="center">
           <section>
-            <p>
-              Este patrón nos permite <Text text="tener una clase centralizada que crea y modifica subclases," type="common" isHighlight tag="span" />{' '}
-              definiendo el comportamiento de sus hijas por medio de una extensión de clase base o interfaz, funcionando como una clase abstracta que es
-              implementada por sus hijas.
-            </p>
+            <Text text="Este patrón nos permite" type="common">
+              <Text text="tener una clase centralizada que crea y modifica subclases," type="common" isHighlight tag="span" />
+              <Text
+                text="Este patrón nos permite definiendo el comportamiento de sus hijas por medio de una extensión de clase base o interfaz, funcionando como una clase
+              abstracta que es implementada por sus hijas."
+                type="common"
+                tag="span"
+              />
+            </Text>
             <Text
-              text="Su objetivo es proveer una interfaz para crear pbjetos basados en una clase base o interfaz"
+              text="Su objetivo es proveer una interfaz para crear objetos basados en una clase base o interfaz"
               type="common"
               isHighlight
               tag="p"
@@ -82,14 +86,16 @@ export const Factory: React.FC = () => {
           <MermaidReact id="factory" mmd={factory} />
         </PTRow>
         <PTRow perRow="2-item">
-          <PTSection title="Pros" isMainTitle>
+          <PTSection title="Pros" headingType="subheader">
             <ul>
               <Text type="list" text="Evitamos acoplamiento entre la implementación y los elementos creadores" tag="li" />
               <Text type="list" text="La creación de elementos sucede en un único punto" tag="li" />
-              <Text type="list" text="Agregar nuevos productos no requiere modificar el código, *solo extenderlo*" tag="li" />
+              <Text type="list" text="Agregar nuevos productos no requiere modificar el código" tag="li">
+                <Text type="common" text="Solo Extenderlo" isHighlight />
+              </Text>
             </ul>
           </PTSection>
-          <PTSection title="Contras" isMainTitle>
+          <PTSection title="Contras" headingType="subheader">
             <ul>
               <Text
                 type="list"
@@ -103,14 +109,14 @@ export const Factory: React.FC = () => {
         </PTRow>
         <Divider orientation="horizontal" />
         <PTRow perRow="2-item">
-          <PTSection title="¿Cuando usarlo?" isMainTitle>
+          <PTSection title="¿Cuando usarlo?" headingType="subheader">
             <ul>
               <Text type="list" text="Usarlo cuando se necesite un único punto de acceso a recursos compartidos" tag="li" />
               <Text type="list" text="La creación de elementos sucede en un único punto" tag="li" />
               <Text type="list" text="Agregar nuevos productos no requiere modificar el código, *solo extenderlo*" tag="li" />
             </ul>
           </PTSection>
-          <PTSection title="Aplicaciones" isMainTitle>
+          <PTSection title="Aplicaciones" headingType="subheader">
             <ul>
               <Text
                 type="list"
@@ -122,17 +128,24 @@ export const Factory: React.FC = () => {
             </ul>
           </PTSection>
         </PTRow>
-        <Divider orientation="horizontal" />
-        <PTSection title="Ejemplo" isMainTitle>
+        <PTSection title="Ejemplo" headingType="subheader">
           <PTRow perRow="2-item">
+            <Text type="common" text="En una aplicación tipo Canvas donde el usuario pueden crear diferentes figuras en el panel principal;">
+              <Text
+                text="Podremos utilizar el Patrón Factory para crear y permitir pintar figuras en el lienzo como Circulos, Triangulos, Cuadrados, etc;"
+                isHighlight
+                type="common"
+                tag="span"
+              />
+              <Text text=" Dependiendo de la selección del usuario" type="common" tag="span" />
+            </Text>
             <MermaidReact id="example" mmd={example} />
-            <p>asd</p>
           </PTRow>
         </PTSection>
         <PTRow perRow="3-item">
-          <ColumnRestaurant title="Pizza" createEl={createFactory('PIZZA')}></ColumnRestaurant>
-          <ColumnRestaurant title="Hamburguer" createEl={createFactory('HAMBURGUER')}></ColumnRestaurant>
-          <ColumnRestaurant title="Spaghetti" createEl={createFactory('SPAGHETTI')}></ColumnRestaurant>
+          <ColumnElement title="Circulo" createEl={createFactory('CIRCLE')}></ColumnElement>
+          <ColumnElement title="Cuadrado" createEl={createFactory('SQUARE')}></ColumnElement>
+          <ColumnElement title="Triangulo" createEl={createFactory('TRIANGLE')}></ColumnElement>
         </PTRow>
       </PTSection>
     </>

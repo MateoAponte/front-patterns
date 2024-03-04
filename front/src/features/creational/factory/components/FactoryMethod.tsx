@@ -1,44 +1,41 @@
 import React from 'react';
-import { DishBase } from './DishBase.tsx';
+import { ShapeBase } from './ShapeBase.tsx';
 
-export const HamburgerDish: React.FC = () => {
-  const ingredients: Array<String> = ['Bread', 'Meat', 'Ketchup', 'Cheese', 'Tomato'];
+export const SquareShape: React.FC = () => {
   const clicked = () => {
-    alert('Is a Hamburguer');
+    alert('A Square');
   };
-  return <DishBase name="Hamburguesa" ingredients={ingredients} difficulty="Hard" onClick={clicked} />;
+  return <ShapeBase name="Cuadrado" type="SQUARE" onClick={clicked} />;
 };
-export const SpaghettiDish: React.FC = () => {
-  const ingredients: Array<String> = ['Spaghetti', 'Milk', 'Cheese', 'Some sauce', 'Some meat'];
+export const TriangleShape: React.FC = () => {
   const clicked = () => {
-    alert('Jmm Spaghetti');
+    alert('Ph, a Triangle!!');
   };
-  return <DishBase name="Spaghetti" ingredients={ingredients} difficulty="Easy" onClick={clicked} />;
+  return <ShapeBase name="Triangulo" type="TRIANGLE" onClick={clicked} />;
 };
-export const PizzaDish: React.FC = () => {
-  const ingredients: Array<String> = ['Cheese', 'Tomato', 'Cheese', 'Bulk', 'Peperoni', 'Salami'];
+export const CircleFigure: React.FC = () => {
   const clicked = () => {
-    alert('Is Pizza!');
+    alert('Is a Circle!!!');
   };
-  return <DishBase name="Pizza" ingredients={ingredients} difficulty="Hard" onClick={clicked} />;
+  return <ShapeBase name="Circulo" type="CIRCLE" onClick={clicked} />;
 };
 
-interface DishFactory {
-  makeDish(): React.ReactNode;
+interface ShapeFactory {
+  createShape(): React.ReactNode;
 }
 
-export const PizzaFactory = (): DishFactory => {
+export const CircleFactory = (): ShapeFactory => {
   return {
-    makeDish: () => <PizzaDish />,
+    createShape: () => <CircleFigure />,
   };
 };
-export const HamburguerFactory = (): DishFactory => {
+export const SquareFactory = (): ShapeFactory => {
   return {
-    makeDish: () => <HamburgerDish />,
+    createShape: () => <SquareShape />,
   };
 };
-export const SpaghettiFactory = (): DishFactory => {
+export const TriangleFactory = (): ShapeFactory => {
   return {
-    makeDish: () => <SpaghettiDish />,
+    createShape: () => <TriangleShape />,
   };
 };

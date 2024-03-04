@@ -1,18 +1,18 @@
-import { HamburguerFactory, PizzaFactory, SpaghettiFactory } from './FactoryMethod.tsx';
+import { SquareFactory, CircleFactory, TriangleFactory } from './FactoryMethod.tsx';
 
 export enum DishEnum {
-  PIZZA = 'PIZZA',
-  HAMBURGUER = 'HAMBURGUER',
-  SPAGHETTI = 'SPAGHETTI',
+  SQUARE = 'SQUARE',
+  TRIANGLE = 'TRIANGLE',
+  CIRCLE = 'CIRCLE',
 }
-export type DishType = 'PIZZA' | 'HAMBURGUER' | 'SPAGHETTI';
+export type DishType = 'SQUARE' | 'TRIANGLE' | 'CIRCLE';
 
 export const createFactory = (type: DishType): (() => React.ReactNode) => {
   const factories = {
-    PIZZA: PizzaFactory(),
-    HAMBURGUER: HamburguerFactory(),
-    SPAGHETTI: SpaghettiFactory(),
+    CIRCLE: CircleFactory(),
+    SQUARE: SquareFactory(),
+    TRIANGLE: TriangleFactory(),
   };
   const factory = factories[type];
-  return factory.makeDish;
+  return factory.createShape;
 };
