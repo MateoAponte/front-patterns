@@ -1,4 +1,4 @@
-import { SquareFactory, CircleFactory, TriangleFactory } from './FactoryMethod.tsx';
+import { SquareFactory, CircleFactory, TriangleFactory } from '../components/FactoryMethod.tsx';
 
 export enum DishEnum {
   SQUARE = 'SQUARE',

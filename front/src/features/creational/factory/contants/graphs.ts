@@ -1,4 +1,4 @@
-export const factory = `
+export const FACTORY = `
 flowchart TB
   A[App]
   A -. Use .-> B[Factory]
@@ -10,7 +10,7 @@ flowchart TB
   BA -. Depends .-> CA
   BB -. Depends .-> CB
 `;
-export const example = `
+export const SHAPES = `
 flowchart TB
   A[Canvas]
   A -. Use .-> B[ShapesFactory]

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { createFactory } from './createFactory.ts';
+import { createFactory } from '../helpers/createFactory.ts';
 import { Column } from '../../../common/components/Column.tsx';
 import { PTButton } from '../../../common/components/Button.tsx';
 import { Text } from '../../../common/components/Text.tsx';
 import { PTRow } from '../../../common/components/PTRow.tsx';
 import { PatternLayout } from '../../../common/layouts/PatternLayout.tsx';
-import { example, factory } from './graphs.ts';
+import { SHAPES, FACTORY } from '../contants/graphs.ts';
 
 interface ColumnCreation {
   title: String;
@@ -31,7 +31,7 @@ const ColumnElement: React.FC<ColumnCreation> = ({ title, createEl }) => {
 
 export const Factory: React.FC = () => {
   const mainText = {
-    graph: factory,
+    graph: FACTORY,
     text: [
       {
         text: 'Este patrón nos permite',
@@ -75,7 +75,7 @@ export const Factory: React.FC = () => {
     />,
   ];
   const applications = {
-    graph: example,
+    graph: SHAPES,
     text: [
       {
         text: 'Podremos utilizar el Patrón Factory para crear y permitir pintar figuras en el lienzo como Circulos, Triangulos, Cuadrados, etc;',
