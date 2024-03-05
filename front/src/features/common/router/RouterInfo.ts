@@ -2,6 +2,7 @@ import { Creational } from '../../creational/components/Creational.tsx';
 import { Home } from '../../home/components/Home.tsx';
 import { Factory } from '../../creational/factory/components/Factory.tsx';
 import { CreationalMain } from '../../creational/components/CreationalMain.tsx';
+import { Singleton } from '../../creational/singleton/components/Singleton.tsx';
 
 export interface RoutesModel {
   path: string;
@@ -28,7 +29,7 @@ export const ROUTES: Array<RoutesModel> = [
       },
       {
         path: 'singleton',
-        component: Factory,
+        component: Singleton,
       },
       {
         path: 'prototype',
