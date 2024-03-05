@@ -1,0 +1,10 @@
+.ptn-input {
+  border: 1px solid #b1b1b1; /* Borde resaltado */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 0.2rem 0.6rem; /* Padding interno */
+  max-height: 30px;
+  font-size: 0.9rem;
+  outline: none; /* Eliminar contorno al hacer foco */
+  transition: border-color 0.3s;
+  width: 100%;
+}

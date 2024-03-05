@@ -1,8 +1,8 @@
 .ptn-button {
   background-color: #007bff;
   display: inline-block;
-  padding: 8px 20px;
-  font-size: 16px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
   font-weight: bold;
   text-align: center;
   border: none;
@@ -17,5 +17,9 @@
   }
   &--large {
     width: 100%;
+  }
+  &--small {
+    width: auto;
+    font-weight: 500;
   }
 }

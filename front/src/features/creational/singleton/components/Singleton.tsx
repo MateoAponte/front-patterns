@@ -2,6 +2,13 @@ import React from 'react';
 import { PatternLayout } from '../../../common/layouts/PatternLayout.tsx';
 import { Text } from '../../../common/components/Text.tsx';
 import { REDUX_STORE, SINGLETON } from '../constants/graph.ts';
+import { countStore } from '../../../common/store/index.ts';
+import { PTRow } from '../../../common/components/PTRow.tsx';
+import { Column } from '../../../common/components/Column.tsx';
+import { PTButton } from '../../../common/components/Button.tsx';
+import { TypeActions } from '../../../common/store/types.ts';
+import { TextField } from '../../../common/components/TextField.tsx';
+import { Divider } from '../../../common/components/Divider.tsx';
 
 const mainText = {
   graph: SINGLETON,
@@ -52,10 +59,46 @@ const cons = [
 ];
 
 export const Singleton: React.FC = () => {
+  const realStore = countStore((state: any) => state);
+  const count = countStore((state: any) => state.counter);
+  const pattern = countStore((state: any) => state.pattern);
+  const increment = countStore((state: any) => state[TypeActions.INCREMENT_COUNTER]);
+  const decrement = countStore((state: any) => state[TypeActions.DECREMENT_COUNTER]);
+  const updateCounter = countStore((state: any) => state[TypeActions.UPDATE_COUNTER]);
+  const updatePattern = countStore((state: any) => state[TypeActions.UPDATE_PATTERN]);
+
   return (
     <>
       <PatternLayout mainText={mainText} cons={cons} pros={pros} uses={uses} examples={examples} title="Singleton" applications={applications}>
-        <Text type="heading" tag="h1" text="Hi" />
+        <PTRow perRow="2-item">
+          <Column>
+            <Column>
+              <PTRow perRow="4-item">
+                <PTButton type="small" onClick={() => increment()}>
+                  Increase +
+                </PTButton>
+                <PTButton type="small" onClick={() => decrement()}>
+                  Decrease -
+                </PTButton>
+                <PTButton type="small" onClick={() => updateCounter(50)}>
+                  Set 50
+                </PTButton>
+                <PTButton type="small" onClick={() => updateCounter(-100)}>
+                  Set -100
+                </PTButton>
+              </PTRow>
+              <PTRow perRow="2-item">
+                <Text text={'Count: ' + String(count)} type="heading" heading="h1" modifier="bolder" />
+              </PTRow>
+            </Column>
+            <Divider orientation="horizontal" />
+            <Column>
+              <TextField input={pattern} setInput={updatePattern} />
+              <Text text={'Pattern: ' + pattern} type="heading" heading="h3" modifier="bolder" />
+            </Column>
+          </Column>
+          <Text text={JSON.stringify(realStore)} type="common" />
+        </PTRow>
       </PatternLayout>
     </>
   );
