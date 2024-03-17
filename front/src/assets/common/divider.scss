@@ -3,12 +3,12 @@
   border: none;
   &--horizontal {
     height: 1px;
-    border-bottom: 3px solid #ccc;
+    border-bottom: 2px solid $color-line;
     width: 100%;
   }
   &--vertical {
     height: 100%;
     width: 1px;
-    border-left: 3px solid #ccc;
+    border-left: 2px solid $color-line;
   }
 }

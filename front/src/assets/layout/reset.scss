@@ -23,14 +23,14 @@ body {
   width: 100vw;
 }
 main {
-  margin-top: 40px;
-  width: 100vw;
+  width: calc(100vw - $margin-left);
+  margin-left: $margin-left;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   & > .ptn-section {
     padding-top: 6rem;
     width: 60vw;
-    margin-left: 15%;
   }
 }

@@ -62,11 +62,11 @@
   }
 
   &--highlight {
-    padding: 2px 4px;
+    // padding: 2px 4px;
     word-spacing: 0.5px;
-    background-color: $color-highlight;
-    color: white;
-    font-weight: 500;
-    border-radius: 2px; /* Bordes redondeados */
+    // background-color: $color-highlight;
+    color: $color-highlight;
+    font-weight: 700;
+    // border-radius: 2px; /* Bordes redondeados */
   }
 }
