@@ -14,10 +14,11 @@ interface PanelModel {
 
 export const PTSection: React.FC<PanelModel> = ({ children, title, description, headingType, hasDivider }) => {
   const getHeadingType = !!headingType ? `ptn-section__${headingType}` : '';
+  const isSubtitle = headingType === 'subheader';
   return (
     <div className="ptn-section">
       <div className={getHeadingType}>
-        <Text text={title} type="heading" spaced="spaced-1" heading="h3" modifier="bolder" />
+        <Text text={title} type="heading" spaced="spaced-1" heading="h3" modifier={isSubtitle ? 'bold' : 'bolder'} />
       </div>
       {description && <Text text={description} type="common" spaced="spaced-3" />}
       {!!getHeadingType && hasDivider && <Divider orientation="horizontal" />}

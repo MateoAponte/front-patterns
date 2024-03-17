@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TextType = 'heading' | 'helper' | 'common' | 'list' | '';
-type TextModifier = 'bolder' | 'italic' | 'subline' | 'strikethrough' | '';
+type TextModifier = 'bold' | 'bolder' | 'italic' | 'subline' | 'strikethrough' | '';
 type TextSpaced = 'spaced-1' | 'spaced-2' | 'spaced-3' | 'spaced-4' | 'spaced-5' | '';
 type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

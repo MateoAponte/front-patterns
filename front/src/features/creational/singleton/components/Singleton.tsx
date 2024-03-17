@@ -88,13 +88,13 @@ export const Singleton: React.FC = () => {
                 </PTButton>
               </PTRow>
               <PTRow perRow="2-item">
-                <Text text={'Count: ' + String(count)} type="heading" heading="h1" modifier="bolder" />
+                <Text text={'Count: ' + String(count)} type="heading" heading="h1" modifier="bold" />
               </PTRow>
             </Column>
             <Divider orientation="horizontal" />
             <Column>
               <TextField input={pattern} setInput={updatePattern} />
-              <Text text={'Pattern: ' + pattern} type="heading" heading="h3" modifier="bolder" />
+              <Text text={'Pattern: ' + pattern} type="heading" heading="h3" modifier="bold" />
             </Column>
           </Column>
           <Text text={JSON.stringify(realStore)} type="common" />

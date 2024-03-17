@@ -17,13 +17,13 @@ export const ShapeBase: React.FC<ShapeModel> = ({ name, type, onClick }) => {
     <>
       <Card>
         <CardHeader>
-          <Text text={name} type="heading" modifier="bolder" />
+          <Text text={name} type="heading" modifier="bold" />
         </CardHeader>
         <CardContent>
           <div className="ptn-canvas">
             <div className={`ptn-shape ptn-shape__${getShape}`}></div>
             <PTButton type="small" onClick={() => onClick()}>
-              <Text text="Do something" type="common" modifier="bolder" />
+              <Text text="Do something" type="common" modifier="bold" />
             </PTButton>
           </div>
         </CardContent>

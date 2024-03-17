@@ -10,8 +10,11 @@
     display: list-item;
     list-style: disc;
   }
-  &--bolder {
+  &--bold {
     font-weight: 600;
+  }
+  &--bolder {
+    font-weight: 800;
   }
   &--italic {
     font-style: italic;
@@ -42,27 +45,27 @@
     font-size: 0.65rem;
   }
 
-  &--bolder {
-    font-weight: 600 !important;
-  }
   &--spaced-1 {
-    margin: 0.5rem 0 !important;
+    margin: 0.5rem 0;
   }
   &--spaced-2 {
-    margin: 1rem 0 !important;
+    margin: 1rem 0;
   }
   &--spaced-3 {
-    margin: 1.5rem 0 !important;
+    margin: 1.5rem 0;
   }
   &--spaced-4 {
-    margin: 2rem 0 !important;
+    margin: 2rem 0;
   }
   &--spaced-5 {
-    margin: 2.5rem 0 !important;
+    margin: 2.5rem 0;
   }
 
   &--highlight {
-    color: #f5785c; /* Color de texto claro para contrastar */
+    padding: 2px 4px;
+    word-spacing: 0.5px;
+    background-color: $color-highlight;
+    color: white;
     font-weight: 500;
     border-radius: 2px; /* Bordes redondeados */
   }

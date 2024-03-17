@@ -20,9 +20,9 @@ const ColumnElement: React.FC<ColumnCreation> = ({ title, createEl }) => {
   };
   return (
     <Column>
-      <h1 className="column__title">{title}</h1>
+      <Text type="heading" heading="h4" modifier="bold" tag="span" spaced="spaced-2" text={title} />
       <PTButton onClick={() => addComponent()} type="large">
-        <Text text="Crear" type="common" modifier="bolder" />
+        <Text text="Crear" type="common" modifier="bold" />
       </PTButton>
       <div className="column__content">{components}</div>
     </Column>
