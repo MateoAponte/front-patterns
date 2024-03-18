@@ -8,9 +8,10 @@ export const BreadCrumb: React.FC = () => {
   const location = useLocation();
   const paths = location.pathname.split('/');
   const pathsRedirect = paths.map((path) => {
+    const pathInfo = getRedirectPath(path);
     return {
-      name: path.charAt(0).toUpperCase() + path.slice(1),
-      redirect: getRedirectPath(path),
+      name: pathInfo.alias,
+      redirect: pathInfo.path,
     };
   });
 

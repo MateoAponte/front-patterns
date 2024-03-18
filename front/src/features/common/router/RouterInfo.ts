@@ -6,6 +6,7 @@ import { Singleton } from '../../creational/singleton/components/Singleton.tsx';
 
 export interface RoutesModel {
   path: string;
+  alias: string;
   nested?: RoutesModel[];
   component?: React.FC;
 }
@@ -13,36 +14,44 @@ export interface RoutesModel {
 export const ROUTES: Array<RoutesModel> = [
   {
     path: 'creational',
+    alias: 'Patrones creacionales',
     component: Creational,
     nested: [
       {
         path: '',
+        alias: 'Patrones',
         component: CreationalMain,
       },
       {
         path: 'factory',
+        alias: 'Factory Method',
         component: Factory,
       },
       {
         path: 'abstract',
+        alias: 'Abstract Factory',
         component: Factory,
       },
       {
         path: 'singleton',
+        alias: 'Singleton',
         component: Singleton,
       },
       {
         path: 'prototype',
+        alias: 'Prototype',
         component: Factory,
       },
       {
         path: 'builder',
+        alias: 'Builder',
         component: Factory,
       },
     ],
   },
   {
     path: '/',
+    alias: 'Home',
     component: Home,
   },
 ];
@@ -61,16 +70,18 @@ export const getType = (type: string): Array<RoutesModel> => {
 const findPath = (path: String, routes: Array<RoutesModel>) => {
   for (let i = 0; i <= routes.length - 1; i++) {
     let route = routes[i];
-    if (route.path === path) return `/${path}`;
+    if (route.path === path) return { path: `/${path}`, alias: route.alias };
     if (route.nested) {
       const nestedRoute = route.nested.find((nested) => nested.path === path);
-
       if (nestedRoute) {
-        return `/${route.path}/${path}`;
+        return {
+          path: `/${route.path}/${path}`,
+          alias: nestedRoute.alias,
+        };
       } else {
         const recursiveResult = findPath(path, route.nested);
         if (recursiveResult) {
-          return `/${route.path}${recursiveResult}`;
+          return { path: `/${route.path}${recursiveResult}`, alias: recursiveResult.alias };
         }
       }
     }
@@ -80,4 +91,3 @@ const findPath = (path: String, routes: Array<RoutesModel>) => {
 export const getRedirectPath = (path: string) => {
   return findPath(path, ROUTES);
 };
-console.log(getRedirectPath('creational'));
