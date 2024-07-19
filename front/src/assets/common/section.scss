@@ -2,45 +2,44 @@
   position: relative;
   width: 100%;
   &__content {
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 0 0.5rem;
   }
 
   &__header {
     font-weight: bold;
     text-transform: uppercase;
-    position: absolute;
-    top: 0;
-    width: calc(100% - 250px);
-    color: $color-banner !important;
-    text-align: center;
-    padding: 1.2rem 2rem;
+    width: calc(100%);
+    color: $color-sidebar !important;
     color: #fff;
-    margin-bottom: 2rem;
     background-color: $color-background;
-    margin-top: 20px;
-    &::after {
-      content: ''; /* Contenido vacío */
-      position: absolute; /* Posición absoluta para superponer */
-      bottom: -5px;
-      right: 0;
-      left: 0;
-      margin: auto;
-      width: 70%;
-      height: 3px;
-      background-color: $color-banner; /* Color del elemento */
+    padding: 2rem 1rem 0px;
+    margin-top: 1rem;
+    .ptn-text--heading {
+      font-size: 3rem;
     }
-    &::before {
-      content: ''; /* Contenido vacío */
-      position: absolute; /* Posición absoluta para superponer */
-      top: -5px;
-      right: 0;
-      left: 0;
-      margin: auto;
-      width: 70%;
-      height: 3px;
-      background-color: $color-banner; /* Color del elemento */
-    }
+    // &::after {
+    //   content: '';
+    //   position: absolute; 
+    //   bottom: -5px;
+    //   right: 0;
+    //   left: 0;
+    //   margin: auto;
+    //   width: 70%;
+    //   height: 3px;
+    //   background-color: $color-banner;
+    // }
+    // &::before {
+    //   content: ''; 
+    //   position: absolute; 
+    //   top: -5px;
+    //   right: 0;
+    //   left: 0;
+    //   margin: auto;
+    //   width: 70%;
+    //   height: 3px;
+    //   background-color: $color-banner;
+    // }
   }
 
   &__subheader {
@@ -49,28 +48,36 @@
     letter-spacing: 0;
     line-height: 1.5em;
     position: relative;
-    padding: 0.5rem 0.5rem;
-    color: $color-title;
-    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+    color: $color-sidebar;
+    display: flex;
+    align-items: center;
+    .ptn-text--heading {
+      font-size: 1.5rem;
+    }
+    svg {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      color: $color-highlight;
+    }
 
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 7px;
-      width: 55px;
-      background-color: $color-title;
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 2px;
-      height: 2px;
-      width: 95%;
-      max-width: 255px;
-      background-color: $color-title;
-    }
+  }
+
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   height: 7px;
+    //   width: 55px;
+    //   background-color: $color-title;
+    // }
+
+
+  &__helper {
+    margin-top: 0.2rem;
+    padding-left: 1.2rem;
+    color: $color-text;
+    margin-bottom: 2.5rem;
   }
 }

@@ -1,5 +1,5 @@
-class BaseCar {
-  abstract showCost(): void {}
+abstract class BaseCar {
+  abstract showCost();
 }
 class MastodonCar extends BaseCar {
   showCost(): void {
@@ -12,8 +12,8 @@ class RhinoCar extends BaseCar {
   }
 }
 
-class CarFactory() {
-  abstract makeCar(): void {}
+abstract class CarFactory {
+  abstract makeCar();
 }
 class MastodonCarFactory extends CarFactory {
   makeCar(): MastodonCar {
@@ -31,13 +31,13 @@ const appFactory = (factory: CarFactory) => {
 }
 
 enum FactoryType {
-  MASTODON = MastodonCarFactory,
-  RHINO = RhinoCarFactory,
+  MASTODON = 'MastodonCarFactory',
+  RHINO = 'RhinoCarFactory',
 }
 const createFactory = (type: FactoryType) => {
   const factories = {
     [FactoryType.MASTODON]: MastodonCarFactory,
-    [FactoryType.RHINO]: RhinoCarFactory;
+    [FactoryType.RHINO]: RhinoCarFactory,
   }
   const Factory = factories[type];
   return new Factory();
@@ -46,15 +46,15 @@ const createFactory = (type: FactoryType) => {
 appFactory(createFactory(FactoryType.MASTODON));
 appFactory(createFactory(FactoryType.RHINO));
 
-// Example
+// Example 2
 
-class HttpFactory() {
-  abstract createAdapter(): void {}
+abstract class HttpFactory {
+  abstract createAdapter();
 }
 type AdaptersType = 'Express' | 'NestJs';
 abstract class HttpAdapter {
-  private type: String;
-  constructor(type: AdaptersType) {}
+  public type: String;
+  constructor() {}
   public abstract put(): void;
   public abstract delete(): void;
   public abstract get(): void;
@@ -110,9 +110,9 @@ enum AdaptersName {
   EXPRESS = 'Express',
   NESTJS = 'NestJs',
 }
-enum AdapterDictionary {
-  [AdaptersName.EXPRESS] = NestJsFactory,
-  [AdaptersName.NESTJS] = ExpressJsFactory,
+const AdapterDictionary = {
+  [AdaptersName.EXPRESS]: NestJsFactory,
+  [AdaptersName.NESTJS] : ExpressJsFactory,
 }
 
 const triggerAdapters = (adapter: HttpFactory) => {
@@ -122,7 +122,7 @@ const triggerAdapters = (adapter: HttpFactory) => {
   localHttpAdapter.delete();
   localHttpAdapter.post();
 }
-const createAdapter = (type: String) => {
+const createAdapter = (type: AdaptersName) => {
   const newAdapter = AdapterDictionary[type];
   return new newAdapter();
 }

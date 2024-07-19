@@ -6,6 +6,15 @@ import { Divider } from '../../common/components/Divider.tsx';
 import { Text } from '../components/Text.tsx';
 import { ChildrenInterface } from '../interfaces/ChildrenInterface';
 import { TextInterface } from '../interfaces/TextInterface';
+import { Card } from '../components/Card.tsx';
+import { Column } from '../components/Column.tsx';
+
+import { FiInfo } from "react-icons/fi";
+import { FaCheck } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa6";
+import { FaFlagCheckered } from "react-icons/fa6";
+import { FaRegFileCode } from "react-icons/fa6";
 
 interface GraphDescription {
   text: Array<TextInterface>;
@@ -20,6 +29,7 @@ interface PatternLayoutModel extends ChildrenInterface {
   uses: Array<React.ReactNode>;
   examples: Array<React.ReactNode>;
   applications: GraphDescription;
+  helper?: string;
 }
 
 const List = ({ list }) => {
@@ -36,44 +46,58 @@ const TextParsed = ({ text }) => {
   );
 };
 
-export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, applications, cons, examples, mainText, pros, uses }) => {
+export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, applications, cons, examples, mainText, pros, uses, helper }) => {
   let randomId = `id-ptn-${Math.floor(Math.random() * 100 + 1)}`;
+
   return (
     <>
-      <PTSection title={title} headingType="header">
-        <PTRow perRow="2-item" verticalAligment="center">
-          <div>
-            <TextParsed text={mainText.text} />
-          </div>
-          <MermaidReact id="factory" mmd={mainText.graph} />
-        </PTRow>
-        <Divider orientation="horizontal" />
-        <PTRow perRow="2-item">
-          <PTSection title="Pros" headingType="subheader">
-            <List list={pros} />
-          </PTSection>
-          <PTSection title="Contras" headingType="subheader">
-            <List list={cons} />
-          </PTSection>
-        </PTRow>
-        <Divider orientation="horizontal" />
-        <PTRow perRow="2-item">
-          <PTSection title="¿Cuando usarlo?" headingType="subheader">
-            <List list={uses} />
-          </PTSection>
-          <PTSection title="Aplicaciones" headingType="subheader">
-            <List list={examples} />
-          </PTSection>
-        </PTRow>
-        <PTSection title="Ejemplo" headingType="subheader">
-          <PTRow perRow="2-item" verticalAligment="start">
-            <div>
-              <TextParsed text={applications.text} />
-            </div>
-            <MermaidReact id={randomId} mmd={applications.graph} />
+      <PTSection title={title} helper={helper} headingType="header">
+          <Card>
+            <Column >
+              <PTSection title="¿Qué es?" headingType="subheader" icon={<FiInfo />}>
+                  <div>
+                    <TextParsed text={mainText.text} />
+                  </div>
+                  <div className='ptn-centered'>
+                    <MermaidReact id="factory" mmd={mainText.graph} />
+                  </div>
+              </PTSection>
+            </Column>
+          </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <PTRow perRow="2-item">
+            <PTSection title="Pros" headingType="subheader" icon={<FaCheck />}>
+              <List list={pros} />
+            </PTSection>
+            <PTSection title="Contras" headingType="subheader" icon={<FaTimes />}>
+              <List list={cons} />
+            </PTSection>
           </PTRow>
-        </PTSection>
-        {children}
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <PTRow perRow="2-item">
+            <PTSection title="¿Cuando usarlo?" headingType="subheader" icon={<FaClipboardList /> }>
+              <List list={uses} />
+            </PTSection>
+            <PTSection title="Aplicaciones" headingType="subheader" icon={<FaFlagCheckered  /> }>
+              <List list={examples} />
+            </PTSection>
+          </PTRow>
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <PTSection title="Ejemplo" headingType="subheader" icon={<FaRegFileCode /> }>
+            <PTRow perRow="2-item" verticalAligment="start">
+              <div>
+                <TextParsed text={applications.text} />
+              </div>
+              <MermaidReact id={randomId} mmd={applications.graph} />
+            </PTRow>
+          </PTSection>
+          {children}
+        </Card>
       </PTSection>
     </>
   );

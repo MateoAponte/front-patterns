@@ -11,4 +11,7 @@
     width: 1px;
     border-left: 2px solid $color-line;
   }
+  &--hide {
+    visibility: hidden;
+  }
 }
