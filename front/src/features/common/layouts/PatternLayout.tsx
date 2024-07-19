@@ -15,6 +15,7 @@ import { FaTimes } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa6";
 import { FaFlagCheckered } from "react-icons/fa6";
 import { FaRegFileCode } from "react-icons/fa6";
+import { PTCode } from '../components/Code.tsx';
 
 interface GraphDescription {
   text: Array<TextInterface>;
@@ -30,6 +31,7 @@ interface PatternLayoutModel extends ChildrenInterface {
   examples: Array<React.ReactNode>;
   applications: GraphDescription;
   helper?: string;
+  code?: string[];
 }
 
 const List = ({ list }) => {
@@ -46,7 +48,7 @@ const TextParsed = ({ text }) => {
   );
 };
 
-export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, applications, cons, examples, mainText, pros, uses, helper }) => {
+export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, applications, cons, examples, mainText, pros, uses, helper, code = [] }) => {
   let randomId = `id-ptn-${Math.floor(Math.random() * 100 + 1)}`;
 
   return (
@@ -85,6 +87,12 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, a
               <List list={examples} />
             </PTSection>
           </PTRow>
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <PTSection title="Código" headingType="subheader" icon={<FaRegFileCode /> } maxHeight='550px' overflow >
+            <PTCode code={code} />
+          </PTSection>
         </Card>
         <Divider orientation="horizontal" show={false} />
         <Card>

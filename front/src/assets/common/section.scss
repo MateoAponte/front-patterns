@@ -1,6 +1,11 @@
 .ptn-section {
   position: relative;
   width: 100%;
+  
+  &--overflow {
+    overflow-y: auto;
+  }
+
   &__content {
     margin-top: 1rem;
     padding: 0 0.5rem;
@@ -18,28 +23,6 @@
     .ptn-text--heading {
       font-size: 3rem;
     }
-    // &::after {
-    //   content: '';
-    //   position: absolute; 
-    //   bottom: -5px;
-    //   right: 0;
-    //   left: 0;
-    //   margin: auto;
-    //   width: 70%;
-    //   height: 3px;
-    //   background-color: $color-banner;
-    // }
-    // &::before {
-    //   content: ''; 
-    //   position: absolute; 
-    //   top: -5px;
-    //   right: 0;
-    //   left: 0;
-    //   margin: auto;
-    //   width: 70%;
-    //   height: 3px;
-    //   background-color: $color-banner;
-    // }
   }
 
   &__subheader {

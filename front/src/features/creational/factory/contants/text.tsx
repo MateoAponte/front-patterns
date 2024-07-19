@@ -66,4 +66,57 @@ export const examples = [
 ];
 export const helper = "A pattern that give a interface to create objects by a superclase, while the subclases can modify the objects that it's created.";
 
+export const code = [
+  `// Interface Pet to any Animal that will be created in the factories
+  abstract class Pet {
+    abstract doAnySound();
+  }
+
+  class Dog extends Pet {
+    doAnySound(): void {
+        console.log('Guaf Guaf!');
+    }
+  }
+
+  class Cat extends Pet {
+    doAnySound(): void {
+      console.log('Purrrr!');
+    }
+  }`,
+  `// Interface 'PetFactory' to all the factories that will be return the same Class
+  abstract class PetFactory {
+    abstract addPet();
+  }
+
+  class DogFactory extends PetFactory {
+    createPet(): Dog {
+      return new Dog();
+    }
+  }
+
+  class CatFactory extends PetFactory {
+    createPet(): Cat {
+      return new Cat();
+    }
+  }`,
+  `// Function will create a factory by a param
+  const appFactory = (factory: PetFactory) => {
+    const pet: Pet = factory.createPet();
+    pet.doAnySound(); // Any Sound
+  }`,
+  `// Function that asigns a factory by Type and return the Factory Type
+  const createFactory = (type: FactoryType) => {
+    const factories = {
+      [FactoryType.CAT]: CatFactory,
+      [FactoryType.DOG]: DogFactory,
+    }
+    const Factory = factories[type];
+    return new Factory();
+  }
+
+  appFactory(createFactory(FactoryType.CAT)); // Purrrr!
+  appFactory(createFactory(FactoryType.DOG)); // Guaf Guaf!
+  `
+]
+
 export default {};

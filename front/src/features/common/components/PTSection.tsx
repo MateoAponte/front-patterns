@@ -12,18 +12,21 @@ interface PanelModel {
   hasDivider?: Boolean;
   helper?: String;
   icon?: React.ReactNode;
+  maxHeight?: string;
+  overflow?: Boolean;
 }
 
-export const PTSection: React.FC<PanelModel> = ({ children, title, description, headingType, hasDivider, helper, icon }) => {
+export const PTSection: React.FC<PanelModel> = ({ children, title, description, headingType, hasDivider, helper, icon, maxHeight = '', overflow }) => {
   const getHeadingType = !!headingType ? `ptn-section__${headingType}` : '';
   const isSubtitle = headingType === 'subheader';
+  const hasOverflow = overflow ? `ptn-section--overflow` : '';
   const hasHelper = !!helper
       ? <div className="ptn-section__helper">
         <Text text={helper || ''} type="helper" spaced="spaced-1" heading="h5" />
       </div>
       : <></>;
   return (
-    <div className="ptn-section">
+    <div className={`ptn-section ${hasOverflow}`} style={{maxHeight: maxHeight}}>
       <div className={getHeadingType}>
         {icon}
         <Text text={title} type="heading" spaced="spaced-1" heading="h3" modifier={isSubtitle ? 'bold' : 'bolder'} />
