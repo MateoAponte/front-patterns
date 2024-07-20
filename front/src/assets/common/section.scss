@@ -1,7 +1,7 @@
 .ptn-section {
   position: relative;
   width: 100%;
-  
+
   &--overflow {
     overflow-y: auto;
   }
@@ -15,11 +15,13 @@
     font-weight: bold;
     text-transform: uppercase;
     width: calc(100%);
-    color: $color-sidebar !important;
-    color: #fff;
+    color: $color-title;
     background-color: $color-background;
     padding: 2rem 1rem 0px;
     margin-top: 1rem;
+    .ptn-text--heading {
+      color: $color-title;
+    }
     .ptn-text--heading {
       font-size: 3rem;
     }
@@ -41,21 +43,19 @@
     svg {
       font-size: 2rem;
       margin-right: 0.5rem;
-      color: $color-highlight;
+      color: $color-icon;
     }
-
   }
 
-    // &:before {
-    //   content: '';
-    //   position: absolute;
-    //   left: 0;
-    //   bottom: 0;
-    //   height: 7px;
-    //   width: 55px;
-    //   background-color: $color-title;
-    // }
-
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: 0;
+  //   height: 7px;
+  //   width: 55px;
+  //   background-color: $color-title;
+  // }
 
   &__helper {
     margin-top: 0.2rem;

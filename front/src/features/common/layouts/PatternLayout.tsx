@@ -9,13 +9,15 @@ import { TextInterface } from '../interfaces/TextInterface';
 import { Card } from '../components/Card.tsx';
 import { Column } from '../components/Column.tsx';
 
-import { FiInfo } from "react-icons/fi";
-import { FaCheck } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
-import { FaClipboardList } from "react-icons/fa6";
-import { FaFlagCheckered } from "react-icons/fa6";
-import { FaRegFileCode } from "react-icons/fa6";
-import { PTCode } from '../components/Code.tsx';
+import { MdReportProblem } from 'react-icons/md';
+import { FiInfo } from 'react-icons/fi';
+import { FaCheck, FaTools } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import { FaClipboardList } from 'react-icons/fa6';
+import { FaFlagCheckered } from 'react-icons/fa6';
+import { FaRegFileCode } from 'react-icons/fa6';
+import { MdTipsAndUpdates } from 'react-icons/md';
+import { CodePreview } from '../components/CodePreview.tsx';
 
 interface GraphDescription {
   text: Array<TextInterface>;
@@ -26,9 +28,12 @@ interface PatternLayoutModel extends ChildrenInterface {
   title: String;
   mainText: GraphDescription;
   pros: Array<React.ReactNode>;
+  issue: Array<React.ReactNode>;
+  solution: Array<React.ReactNode>;
   cons: Array<React.ReactNode>;
   uses: Array<React.ReactNode>;
   examples: Array<React.ReactNode>;
+  usageTips: Array<React.ReactNode>;
   applications: GraphDescription;
   helper?: string;
   code?: string[];
@@ -42,37 +47,88 @@ const TextParsed = ({ text }) => {
   return (
     <>
       {text.map((item: TextInterface) => (
-        <Text isHighlight={item.isHighlight} text={item.text} spaced={text.spaced} type="common" />
+        <Text
+          isHighlight={item.isHighlight}
+          text={item.text}
+          spaced={text.spaced}
+          type="common"
+        />
       ))}
     </>
   );
 };
 
-export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, applications, cons, examples, mainText, pros, uses, helper, code = [] }) => {
+export const PatternLayout: React.FC<PatternLayoutModel> = ({
+  title,
+  children,
+  applications,
+  cons,
+  examples,
+  mainText,
+  pros,
+  uses,
+  helper,
+  code = [],
+  issue,
+  solution,
+  usageTips,
+}) => {
   let randomId = `id-ptn-${Math.floor(Math.random() * 100 + 1)}`;
 
   return (
     <>
       <PTSection title={title} helper={helper} headingType="header">
-          <Card>
-            <Column >
-              <PTSection title="¿Qué es?" headingType="subheader" icon={<FiInfo />}>
-                  <div>
-                    <TextParsed text={mainText.text} />
-                  </div>
-                  <div className='ptn-centered'>
-                    <MermaidReact id="factory" mmd={mainText.graph} />
-                  </div>
-              </PTSection>
-            </Column>
-          </Card>
+        <Card>
+          <Column>
+            <PTSection
+              title="¿Qué es?"
+              headingType="subheader"
+              icon={<FiInfo />}
+            >
+              <div>
+                <TextParsed text={mainText.text} />
+              </div>
+              <div className="ptn-centered">
+                <MermaidReact id="factory" mmd={mainText.graph} />
+              </div>
+            </PTSection>
+          </Column>
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <Column>
+            <PTSection
+              title="Problema"
+              headingType="subheader"
+              icon={<MdReportProblem />}
+            >
+              <List list={issue} />
+            </PTSection>
+          </Column>
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <Column>
+            <PTSection
+              title="How to solve?"
+              headingType="subheader"
+              icon={<FaTools />}
+            >
+              <List list={solution} />
+            </PTSection>
+          </Column>
+        </Card>
         <Divider orientation="horizontal" show={false} />
         <Card>
           <PTRow perRow="2-item">
             <PTSection title="Pros" headingType="subheader" icon={<FaCheck />}>
               <List list={pros} />
             </PTSection>
-            <PTSection title="Contras" headingType="subheader" icon={<FaTimes />}>
+            <PTSection
+              title="Contras"
+              headingType="subheader"
+              icon={<FaTimes />}
+            >
               <List list={cons} />
             </PTSection>
           </PTRow>
@@ -80,23 +136,53 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({ title, children, a
         <Divider orientation="horizontal" show={false} />
         <Card>
           <PTRow perRow="2-item">
-            <PTSection title="¿Cuando usarlo?" headingType="subheader" icon={<FaClipboardList /> }>
+            <PTSection
+              title="¿Cuando usarlo?"
+              headingType="subheader"
+              icon={<FaClipboardList />}
+            >
               <List list={uses} />
             </PTSection>
-            <PTSection title="Aplicaciones" headingType="subheader" icon={<FaFlagCheckered  /> }>
+            <PTSection
+              title="Aplicaciones"
+              headingType="subheader"
+              icon={<FaFlagCheckered />}
+            >
               <List list={examples} />
             </PTSection>
           </PTRow>
         </Card>
         <Divider orientation="horizontal" show={false} />
         <Card>
-          <PTSection title="Código" headingType="subheader" icon={<FaRegFileCode /> } maxHeight='550px' overflow >
-            <PTCode code={code} />
+          <PTSection
+            title="Código"
+            headingType="subheader"
+            icon={<FaRegFileCode />}
+            maxHeight="550px"
+            overflow
+          >
+            <CodePreview code={code} />
           </PTSection>
         </Card>
         <Divider orientation="horizontal" show={false} />
         <Card>
-          <PTSection title="Ejemplo" headingType="subheader" icon={<FaRegFileCode /> }>
+          <Column>
+            <PTSection
+              title="Usage tips"
+              headingType="subheader"
+              icon={<MdTipsAndUpdates />}
+            >
+              <List list={usageTips} />
+            </PTSection>
+          </Column>
+        </Card>
+        <Divider orientation="horizontal" show={false} />
+        <Card>
+          <PTSection
+            title="Ejemplo"
+            headingType="subheader"
+            icon={<FaRegFileCode />}
+          >
             <PTRow perRow="2-item" verticalAligment="start">
               <div>
                 <TextParsed text={applications.text} />

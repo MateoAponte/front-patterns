@@ -8,14 +8,14 @@ interface CodeInterface {
 	code: string[];
 }
 
-export const PTCode: React.FC<CodeInterface> = ({ code }) => {
+export const CodePreview: React.FC<CodeInterface> = ({ code }) => {
 	console.log(code);
 	
 	return (
 		<>
 			{
 				code.map((codeString) => <>
-					<CodeMirror value={codeString} extensions={[javascript({ jsx: true })]} theme={vscodeDark} />
+					<CodeMirror value={codeString} extensions={[javascript({ jsx: true })]} theme={vscodeDark} editable={false} />
 					<Divider orientation="horizontal" show={true} />
 				</> )
 			}

@@ -69,4 +69,19 @@
     font-weight: 700;
     // border-radius: 2px; /* Bordes redondeados */
   }
+  &--code {
+    padding: 2px 4px;
+    word-spacing: 0.7px;
+    background-color: $color-text;
+    color: $color-background;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-right: 0.3rem;
+  }
+  &--bolder {
+    color: $color-text;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
 }

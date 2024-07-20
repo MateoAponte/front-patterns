@@ -1,14 +1,12 @@
 export const FACTORY = `
 flowchart TB
-  A[App]
-  A -. Use .-> B[Factory]
-  BA[FactoryA] -- Inherits --> B
-  BB[FactoryB] -- Inherits --> B
-  B -. Depends .-> C[Product]
-  CA[ProductA] -- Inherits --> C
-  CB[ProductA] -- Inherits --> C
-  BA -. Depends .-> CA
-  BB -. Depends .-> CB
+	A(Creator) -->|Use| B[Interfaz Producto]
+	A -->|Extends| F[Concrete Product A]
+	A -->|Extends| C[Concrete Product B]
+	F -->|Create| D[Object Product A]
+	C -->|Create| E[Object Product B]
+	D -.->|Implements| B
+	E -.->|Implements| B
 `;
 export const SHAPES = `
 flowchart TB

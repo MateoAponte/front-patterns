@@ -1,8 +1,20 @@
 import React from 'react';
 
 type TextType = 'heading' | 'helper' | 'common' | 'list' | '';
-type TextModifier = 'bold' | 'bolder' | 'italic' | 'subline' | 'strikethrough' | '';
-type TextSpaced = 'spaced-1' | 'spaced-2' | 'spaced-3' | 'spaced-4' | 'spaced-5' | '';
+type TextModifier =
+  | 'bold'
+  | 'bolder'
+  | 'italic'
+  | 'subline'
+  | 'strikethrough'
+  | '';
+type TextSpaced =
+  | 'spaced-1'
+  | 'spaced-2'
+  | 'spaced-3'
+  | 'spaced-4'
+  | 'spaced-5'
+  | '';
 type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface TextModel {
@@ -12,20 +24,38 @@ interface TextModel {
   spaced?: TextSpaced;
   heading?: Headings;
   isHighlight?: Boolean;
+  isCode?: Boolean;
+  isBolder?: Boolean;
   tag?: String;
   children?: React.ReactNode;
 }
 
-export const Text: React.FC<TextModel> = ({ text, type, modifier, spaced, heading, isHighlight, tag, children }) => {
-  const getType = type ? 'ptn-text--' + type : '';
-  const getModifier = modifier ? 'ptn-text--' + modifier : '';
-  const getSpaced = spaced ? 'ptn-text--' + spaced : '';
-  const getHeading = heading ? 'ptn-text--' + heading : '';
-  const getHighlight = isHighlight ? 'ptn-text--highlight' : '';
+export const Text: React.FC<TextModel> = ({
+  text,
+  type,
+  modifier,
+  spaced,
+  heading,
+  isCode,
+  isBolder,
+  isHighlight,
+  tag,
+  children,
+}) => {
+  const getType = type ? `ptn-text--${type} ` : '';
+  const getModifier = modifier ? `ptn-text--${modifier} ` : '';
+  const getSpaced = spaced ? `ptn-text--${spaced} ` : '';
+  const getHeading = heading ? `ptn-text--${heading} ` : '';
+  const getHighlight = isHighlight ? 'ptn-text--highlight ' : '';
+  const getCode = isCode ? 'ptn-text--code ' : '';
+  const getBolder = isBolder ? 'ptn-text--bolder ' : '';
   const CustomTag = `${tag}` as keyof JSX.IntrinsicElements;
   return (
-    <CustomTag className={`ptn-text ${getType} ${getModifier} ${getSpaced} ${getHeading} ${getHighlight}`}>
-      {text} {children}
+    <CustomTag
+      className={`ptn-text ${getType}${getModifier}${getSpaced}${getHeading}${getHighlight}${getCode}${getBolder}`}
+    >
+      {text}
+      {children}
     </CustomTag>
   );
 };

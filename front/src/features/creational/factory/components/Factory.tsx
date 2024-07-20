@@ -5,7 +5,19 @@ import { PTButton } from '../../../common/components/Button.tsx';
 import { Text } from '../../../common/components/Text.tsx';
 import { PTRow } from '../../../common/components/PTRow.tsx';
 import { PatternLayout } from '../../../common/layouts/PatternLayout.tsx';
-import { mainText, pros, cons, uses, examples, applications, helper, code } from '../contants/text.tsx';
+import {
+  mainText,
+  pros,
+  cons,
+  uses,
+  examples,
+  applications,
+  helper,
+  code,
+  issue,
+  solution,
+  usageTips,
+} from '../contants/text.tsx';
 
 interface ColumnCreation {
   title: String;
@@ -20,7 +32,14 @@ const ColumnElement: React.FC<ColumnCreation> = ({ title, createEl }) => {
   };
   return (
     <Column>
-      <Text type="heading" heading="h4" modifier="bold" tag="span" spaced="spaced-2" text={title} />
+      <Text
+        type="heading"
+        heading="h4"
+        modifier="bold"
+        tag="span"
+        spaced="spaced-2"
+        text={title}
+      />
       <PTButton onClick={() => addComponent()} type="large">
         <Text text="Crear" type="common" modifier="bold" />
       </PTButton>
@@ -32,11 +51,33 @@ const ColumnElement: React.FC<ColumnCreation> = ({ title, createEl }) => {
 export const Factory: React.FC = () => {
   return (
     <>
-      <PatternLayout mainText={mainText} pros={pros} cons={cons} uses={uses} examples={examples} applications={applications} helper={helper} code={code} title="Factory Method" >
+      <PatternLayout
+        mainText={mainText}
+        pros={pros}
+        cons={cons}
+        uses={uses}
+        examples={examples}
+        applications={applications}
+        helper={helper}
+        code={code}
+        issue={issue}
+        solution={solution}
+        usageTips={usageTips}
+        title="Factory Method"
+      >
         <PTRow perRow="3-item">
-          <ColumnElement title="Circulo" createEl={createFactory('CIRCLE')}></ColumnElement>
-          <ColumnElement title="Cuadrado" createEl={createFactory('SQUARE')}></ColumnElement>
-          <ColumnElement title="Triangulo" createEl={createFactory('TRIANGLE')}></ColumnElement>
+          <ColumnElement
+            title="Circulo"
+            createEl={createFactory('CIRCLE')}
+          ></ColumnElement>
+          <ColumnElement
+            title="Cuadrado"
+            createEl={createFactory('SQUARE')}
+          ></ColumnElement>
+          <ColumnElement
+            title="Triangulo"
+            createEl={createFactory('TRIANGLE')}
+          ></ColumnElement>
         </PTRow>
       </PatternLayout>
     </>
