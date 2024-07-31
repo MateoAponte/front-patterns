@@ -3,51 +3,15 @@ import { Home } from '../../home/components/Home.tsx';
 import { Factory } from '../../creational/factory/components/Factory.tsx';
 import { CreationalMain } from '../../creational/components/CreationalMain.tsx';
 import { Singleton } from '../../creational/singleton/components/Singleton.tsx';
-
-export interface RoutesModel {
-  path: string;
-  alias: string;
-  nested?: RoutesModel[];
-  component?: React.FC;
-}
+import { CreationalPaths } from '../../creational/contants/paths.ts';
+import { RoutesModel } from '../interfaces/RoutesInterfaces.ts';
 
 export const ROUTES: Array<RoutesModel> = [
   {
     path: 'creational',
     alias: 'Patrones creacionales',
     component: Creational,
-    nested: [
-      {
-        path: '',
-        alias: 'Patrones',
-        component: CreationalMain,
-      },
-      {
-        path: 'factory',
-        alias: 'Factory Method',
-        component: Factory,
-      },
-      {
-        path: 'abstract',
-        alias: 'Abstract Factory',
-        component: Factory,
-      },
-      {
-        path: 'singleton',
-        alias: 'Singleton',
-        component: Singleton,
-      },
-      {
-        path: 'prototype',
-        alias: 'Prototype',
-        component: Factory,
-      },
-      {
-        path: 'builder',
-        alias: 'Builder',
-        component: Factory,
-      },
-    ],
+    nested: CreationalPaths,
   },
   {
     path: '/',
@@ -63,7 +27,9 @@ export enum RoutesDictionary {
 }
 
 export const getType = (type: string): Array<RoutesModel> => {
-  const routes = ROUTES.filter((route: RoutesModel) => route.path.indexOf(type) !== -1)[0].nested || [];
+  const routes =
+    ROUTES.filter((route: RoutesModel) => route.path.indexOf(type) !== -1)[0]
+      .nested || [];
   return routes.filter((items: RoutesModel) => !!items.path);
 };
 
@@ -81,7 +47,10 @@ const findPath = (path: String, routes: Array<RoutesModel>) => {
       } else {
         const recursiveResult = findPath(path, route.nested);
         if (recursiveResult) {
-          return { path: `/${route.path}${recursiveResult}`, alias: recursiveResult.alias };
+          return {
+            path: `/${route.path}${recursiveResult}`,
+            alias: recursiveResult.alias,
+          };
         }
       }
     }

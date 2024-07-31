@@ -7,14 +7,26 @@ interface RowModel {
   children: React.ReactNode;
   perRow: PerRow;
   verticalAligment?: VerticalAligment;
+  className?: string;
 }
 
-export const PTRow: React.FC<RowModel> = ({ children, perRow, verticalAligment }) => {
+export const PTRow: React.FC<RowModel> = ({
+  children,
+  perRow,
+  verticalAligment,
+  className,
+}) => {
   const getPerRow = perRow ? 'ptn-row--' + perRow : '';
-  const getVerticalCenter = verticalAligment ? 'ptn-row--' + verticalAligment : '';
+  const getVerticalCenter = verticalAligment
+    ? 'ptn-row--' + verticalAligment
+    : '';
   return (
     <>
-      <section className={`ptn-row ${getPerRow} ${getVerticalCenter}`}>{children}</section>
+      <section
+        className={`ptn-row ${getPerRow} ${getVerticalCenter} ${className}`}
+      >
+        {children}
+      </section>
     </>
   );
 };

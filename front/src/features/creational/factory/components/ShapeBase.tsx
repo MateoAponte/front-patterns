@@ -1,6 +1,10 @@
 import React from 'react';
-import { ChildrenInterface } from '../../../common/interfaces/ChildrenInterface';
-import { Card, CardContent, CardHeader } from '../../../common/components/Card.tsx';
+import { ChildrenInterface } from '../../../common/interfaces/ChildrenInterface.ts';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+} from '../../../common/components/Card.tsx';
 import { PTButton } from '../../../common/components/Button.tsx';
 import { Text } from '../../../common/components/Text.tsx';
 import { DishType } from './createFactory.ts';

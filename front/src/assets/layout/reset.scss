@@ -39,6 +39,11 @@ main {
   justify-content: center;
   align-items: center;
 }
-.cm-editor, .cm-scroller {
+.cm-editor,
+.cm-scroller {
   border-radius: 15px;
+}
+a {
+  text-decoration: none;
+  color: unset;
 }

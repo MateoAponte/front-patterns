@@ -4,8 +4,8 @@ import { PTRow } from '../../common/components/PTRow.tsx';
 import MermaidReact from 'mermaid-react';
 import { Divider } from '../../common/components/Divider.tsx';
 import { Text } from '../components/Text.tsx';
-import { ChildrenInterface } from '../interfaces/ChildrenInterface';
-import { TextInterface } from '../interfaces/TextInterface';
+import { ChildrenInterface } from '../interfaces/ChildrenInterface.ts';
+import { TextInterface } from '../interfaces/TextInterface.ts';
 import { Card } from '../components/Card.tsx';
 import { Column } from '../components/Column.tsx';
 
