@@ -81,7 +81,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
         <Card>
           <Column>
             <PTSection
-              title="¿Qué es?"
+              title="What is?"
               headingType="subheader"
               icon={<FiInfo />}
             >
@@ -98,7 +98,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
         <Card>
           <Column>
             <PTSection
-              title="Problema"
+              title="The issue"
               headingType="subheader"
               icon={<MdReportProblem />}
             >
@@ -124,11 +124,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
             <PTSection title="Pros" headingType="subheader" icon={<FaCheck />}>
               <List list={pros} />
             </PTSection>
-            <PTSection
-              title="Contras"
-              headingType="subheader"
-              icon={<FaTimes />}
-            >
+            <PTSection title="Cons" headingType="subheader" icon={<FaTimes />}>
               <List list={cons} />
             </PTSection>
           </PTRow>
@@ -137,14 +133,14 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
         <Card>
           <PTRow perRow="2-item">
             <PTSection
-              title="¿Cuando usarlo?"
+              title="When to use?"
               headingType="subheader"
               icon={<FaClipboardList />}
             >
               <List list={uses} />
             </PTSection>
             <PTSection
-              title="Aplicaciones"
+              title="Uses"
               headingType="subheader"
               icon={<FaFlagCheckered />}
             >
@@ -155,7 +151,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
         <Divider orientation="horizontal" show={false} />
         <Card>
           <PTSection
-            title="Código"
+            title="Code"
             headingType="subheader"
             icon={<FaRegFileCode />}
             maxHeight="550px"
@@ -179,7 +175,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
         <Divider orientation="horizontal" show={false} />
         <Card>
           <PTSection
-            title="Ejemplo"
+            title="Example"
             headingType="subheader"
             icon={<FaRegFileCode />}
           >

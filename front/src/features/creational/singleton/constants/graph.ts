@@ -1,13 +1,16 @@
 export const SINGLETON = `
-flowchart LR
+flowchart TB
   A[App]
-  A -- Use --> B[Singleton Instance]
+  A -- Interacts --> B[Singleton Instance]
   B -- Depends --> C[Singleton Class]
 `;
 
 export const REDUX_STORE = `
-flowchart LR
+flowchart TB
   A[App]
-  A -. Use .-> B[Redux Hooks]
-  B -. Depends .-> C[Redux Store]
+  A -- Use --> B[Notification System]
+  B -. Management .-> C[Notification A]
+  B -. Management .-> D[Notification B]
+  C -- Interact by --> E[User]
+  D -- Interact by --> E[User] 
 `;

@@ -4,7 +4,7 @@ type Orientation = 'horizontal' | 'vertical' | '';
 
 interface DividerModel {
   orientation: Orientation;
-  show: Boolean;
+  show?: Boolean;
 }
 
 export const Divider: React.FC<DividerModel> = ({ orientation, show }) => {

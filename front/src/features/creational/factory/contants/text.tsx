@@ -193,13 +193,13 @@ export const solution = [
     <Text type="common" text="Pet" isCode />
     <Text type="common" text="in the veterinary, and the" />
     <Text type="common" text="Cat Class" isCode />
-    <Text type="common" text="have a similar interaction, those have some differences, the Dog don't purr, so the implementation of the" />
-    <Text type="common" text="DoingASound()" isCode />
-    <Text type="common" text="method" isHighlight />
     <Text
       type="common"
-      text="will be different for the Cat and the Dog."
+      text="have a similar interaction, those have some differences, the Dog don't purr, so the implementation of the"
     />
+    <Text type="common" text="DoingASound()" isCode />
+    <Text type="common" text="method" isHighlight />
+    <Text type="common" text="will be different for the Cat and the Dog." />
   </Text>,
   <Text
     type="list"
@@ -223,11 +223,11 @@ export const usageTips = [
   </Text>,
   <Text type="list" text="">
     <Text type="common" text="Extend a Element:" isBolder />
-      <Text
-        type="common"
-        text="Use the Factory Method when you want to provide users of your library or framework with a way to"
-      />
-      <Text type="common" text="extend its internal components." isHighlight />
+    <Text
+      type="common"
+      text="Use the Factory Method when you want to provide users of your library or framework with a way to"
+    />
+    <Text type="common" text="extend its internal components." isHighlight />
   </Text>,
   <Text type="list" text="">
     <Text type="common" text="Reuse an Element for Memory:" isBolder />
@@ -237,7 +237,7 @@ export const usageTips = [
       type="common"
       text="existing objects instead of rebuilding them each time. "
     />
-  </Text>
+  </Text>,
 ];
 
 export default {};

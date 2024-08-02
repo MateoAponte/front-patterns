@@ -1,5 +1,7 @@
+import { Notification } from '../../creational/singleton/interfaces/notification';
+
 export interface StateInterface {
-  counter: number;
+  notifications: Array<Notification>;
   pattern: String;
 }
 export interface ActionsInterface {
