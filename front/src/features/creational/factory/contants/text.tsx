@@ -6,17 +6,17 @@ export const mainText = {
   graph: FACTORY,
   text: [
     {
-      text: 'Este patrón nos permite',
+      text: 'This pattern allows us to ',
     },
     {
-      text: 'tener una clase centralizada que crea y modifica subclases,',
+      text: 'have a main class that create and modify sub-classes ',
       isHighlight: true,
     },
     {
-      text: 'Este patrón nos permite definiendo el comportamiento de sus hijas por medio de una extensión de clase base o interfaz, funcionando como una clase abstracta que es implementada por sus hijas.',
+      text: "This pattern allows us to define the behavior of it's subclasses through an extension of a main class or interface, functioning as an abstract class that is implemented by it's subclasses. ",
     },
     {
-      text: 'Su objetivo es proveer una interfaz para crear objetos basados en una clase base o interfaz',
+      text: "It's objective is to provide an interface to create objects based from a main class or interface",
       isHighlight: true,
     },
   ],
@@ -25,53 +25,53 @@ export const mainText = {
 export const pros = [
   <Text
     type="list"
-    text="Evitamos acoplamiento entre la implementación y los elementos creadores"
+    text="Unable the possibility to coupled the implementation between the created elements"
     tag="li"
   />,
   <Text
     type="list"
-    text="La creación de elementos sucede en un único punto"
+    text="The element creation occurs in a single point"
     tag="li"
   />,
   <Text
     type="list"
-    text="Agregar nuevos productos no requiere modificar el código"
+    text="Add new products don't require modify a lot of code"
     tag="li"
   >
-    <Text type="common" text="Solo Extenderlo" isHighlight />
+    <Text type="common" text="Only Extend it" isHighlight />
   </Text>,
 ];
 export const cons = [
   <Text
     type="list"
-    text="El patrón resuelve dos problemas al mismo tiempo, creación y acceso a sus intancias por lo cual Vulnera el principio de Responsabilidad única."
+    text="The pattern resolve two problems at the same time, creation and access to it's instances, so it breaks the principle of Single Responsibility."
     tag="li"
   />,
   <Text
     type="list"
-    text="La complejidad incrementa en ambientes de múltiples hilos de ejecución."
+    text="The complexity increases on environments of multiple threads."
     tag="li"
   />,
   <Text
     type="list"
-    text="Complejidad al realizar pruebas unitarias debido al uso de elementos estáticos."
+    text="Complexity when performing unit tests due to the use of static elements."
     tag="li"
   />,
 ];
 export const uses = [
   <Text
     type="list"
-    text="El patrón Factory te permite desacoplar la creación de objetos de su implementación"
+    text="The factory pattern allow decoupling object creation from implementation"
     tag="li"
   />,
   <Text
     type="list"
-    text="Con el patrón Factory, puedes centralizar toda la lógica de creación de objetos en una sola clase o función"
+    text="Using the Factory Pattern, you can concentrate all the object creation logic in a single Class or function."
     tag="li"
   />,
   <Text
     type="list"
-    text="Permite añadir nuevos tipos de objetos o cambiar la implementación de los objetos existentes sin afectar el código que los utiliza"
+    text="It Allow you to add new object types or change the implementation of existing objects without modifying the used code that uses them."
     tag="li"
   />,
 ];
@@ -79,28 +79,28 @@ export const applications = {
   graph: SHAPES,
   text: [
     {
-      text: 'Podremos utilizar el Patrón Factory para crear y permitir pintar figuras en el lienzo como Circulos, Triangulos, Cuadrados, etc;',
+      text: 'We will use the Factory Pattern to create shapes on a canvas, such as Circles, Triangles, Squares, an others; ',
       isHighlight: true,
     },
     {
-      text: 'Dependiendo de la selección del usuario se renderizará un elemento determinado en base a una clase central',
+      text: "Depending of the user's selection will rendered an element from a main class", 
     },
   ],
 };
 export const examples = [
   <Text
     type="list"
-    text="Creación de componentes dinámicos en una interfaz de usuario (Variaciones de un componente)"
+    text="Dynamic component creation in the UI (Variations of the same component)"
     tag="li"
   />,
   <Text
     type="list"
-    text="Consumo de API externas para obtener datos (Manejar las solicitudes de API de manera más eficiente)"
+    text="Fetch an API to get some data (Manage the API requests more efficiently)"
     tag="li"
   />,
   <Text
     type="list"
-    text="Aplicación de análisis de datos con gráficos (Según una serie de datos variar de gráficos)"
+    text="Graphic analysis of data (Depending on the data, the graphs will be different)"
     tag="li"
   />,
 ];
@@ -163,10 +163,10 @@ export const code = [
 export const issue = [
   <Text
     type="list"
-    text="When you created an app, it's very common develop only"
+    text="When you created an app, it's very common develop only "
   >
-    <Text type="common" text="thinking in the actual feature" isHighlight />
-    <Text type="common" text="but doesn't in the future. That generates" />
+    <Text type="common" text="thinking in the actual feature " isHighlight />
+    <Text type="common" text="but doesn't in the future. That generates " />
     <Text type="common" text="acopled problems." isHighlight />
   </Text>,
   <Text
@@ -178,10 +178,10 @@ export const issue = [
 ];
 
 export const solution = [
-  <Text type="list" text="This pattern allow the possibility to create">
-    <Text type="common" text="Animals Class" isCode />
-    <Text type="common" text="by a" />
-    <Text type="common" text="Creator Super-Class" isCode />
+  <Text type="list" text="This pattern allow the possibility to create ">
+    <Text type="common" text="Animals Class " isCode />
+    <Text type="common" text="by a " />
+    <Text type="common" text="Creator Super-Class " isCode />
     <Text
       type="common"
       text="the reason: Have a centralizated creator of elements with the same purpose."
@@ -189,25 +189,18 @@ export const solution = [
   </Text>,
   <Text type="list" text="The ">
     <Text type="common" text="Dog Class" isCode />
-    <Text type="common" text="will be saved as" />
+    <Text type="common" text="will be saved as " />
     <Text type="common" text="Pet" isCode />
-    <Text type="common" text="in the veterinary, and the" />
+    <Text type="common" text="in the veterinary, and the " />
     <Text type="common" text="Cat Class" isCode />
     <Text
       type="common"
-      text="have a similar interaction, those have some differences, the Dog don't purr, so the implementation of the"
+      text="have a similar interaction, those have some differences, the Dog don't purr, so the implementation of the "
     />
     <Text type="common" text="DoingASound()" isCode />
     <Text type="common" text="method" isHighlight />
     <Text type="common" text="will be different for the Cat and the Dog." />
   </Text>,
-  <Text
-    type="list"
-    text="Think, you are creating an app to veterinary, and you need to create a system to manage pets,
-    today the requierement it's only to dogs, but in the future you need to implement's the same software to Cat's.
-    *¿What do you going to do?*"
-    tag="li"
-  />,
 ];
 
 export const usageTips = [

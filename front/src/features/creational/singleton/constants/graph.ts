@@ -7,10 +7,11 @@ flowchart TB
 
 export const REDUX_STORE = `
 flowchart TB
-  A[App]
-  A -- Use --> B[Notification System]
-  B -. Management .-> C[Notification A]
-  B -. Management .-> D[Notification B]
-  C -- Interact by --> E[User]
-  D -- Interact by --> E[User] 
+  B[Notification System]
+  C[Button] -. Subscribe .-> B
+  D[Notification Container] -. Subscribe .-> B
+  E[Icon] -. Subscribe .-> B
+  C -- Execute --> B
+  B -- Notify ---> D
+  B -- Notify ---> E
 `;

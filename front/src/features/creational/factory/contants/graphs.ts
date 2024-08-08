@@ -1,6 +1,6 @@
 export const FACTORY = `
 flowchart TB
-	A(Creator) -->|Use| B[Interfaz Producto]
+	A(Creator) -->|Use| B[Product Interface]
 	A -->|Extends| F[Concrete Product A]
 	A -->|Extends| C[Concrete Product B]
 	F -->|Create| D[Object Product A]
