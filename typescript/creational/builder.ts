@@ -15,21 +15,22 @@ class HatchbackProductionLine implements CarProductionLine {
     this.setInternalModel(model);
     this.resetProductionLine();
   }
-  setAirBags(howMany: number): SedanProductionLine {
+  setAirBags(howMany: number): HatchbackProductionLine {
     console.log(this.hatchbackCar);
     this.hatchbackCar.airBags = howMany;
     return this;
   }
-  setColor(color: String): SedanProductionLine {
+  setColor(color: String): HatchbackProductionLine {
     this.hatchbackCar.color = color;
     return this;
   }
-  setEdition(edition: String): SedanProductionLine {
+  setEdition(edition: String): HatchbackProductionLine {
     this.hatchbackCar.edition = edition;
     return this;
   }
   resetProductionLine(): void {
-    this.hatchbackCar = this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
+    this.hatchbackCar =
+      this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
   }
   build(): Car {
     this.setModel();
@@ -65,7 +66,8 @@ class SedanProductionLine implements CarProductionLine {
     return this;
   }
   resetProductionLine(): void {
-    this.sedanCar = this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
+    this.sedanCar =
+      this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
     console.log(this.internalModel);
   }
   build(): Car {
@@ -138,8 +140,12 @@ class Director {
 }
 
 const appBuilder = (director: Director) => {
-  const mastodonSedanProductionLine = new SedanProductionLine({ model: 'mastodon' });
-  const rhinoHatchbackProductionLine = new HatchbackProductionLine({ model: 'rhino' });
+  const mastodonSedanProductionLine = new SedanProductionLine({
+    model: 'mastodon',
+  });
+  const rhinoHatchbackProductionLine = new HatchbackProductionLine({
+    model: 'rhino',
+  });
 
   director.setProductionLine(mastodonSedanProductionLine);
   director.buildCvtEdition();

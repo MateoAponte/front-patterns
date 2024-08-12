@@ -21,9 +21,6 @@ import { NotificationButton } from './NotificationButton.tsx';
 import { NotificationDisplay } from './NotificationDisplay.tsx';
 
 export const Singleton: React.FC = () => {
-  useEffect(() => {
-    console.log('Singleton');
-  }, []);
 
   return (
     <>

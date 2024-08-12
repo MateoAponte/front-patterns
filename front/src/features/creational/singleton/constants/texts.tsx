@@ -168,13 +168,13 @@ export const issue = [
   >
     <Text
       type="common"
-      text="difficult the debugging and encrease the system complexity "
+      text="difficult the debugging and increase the system complexity "
       isHighlight
     />
   </Text>,
   <Text
     type="list"
-    text="You need to read, modify and create a store Veterinary Managment, but you need to share the same Pet's information for each file that used that "
+    text="You need to read, modify and create a store Veterinary Management, but you need to share the same Pet's information for each file that used that "
   >
     <Text type="common" text="¿What do you going to do?" isHighlight />
   </Text>,
