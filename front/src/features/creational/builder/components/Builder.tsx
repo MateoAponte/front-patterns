@@ -13,6 +13,9 @@ import {
   usageTips,
   uses,
 } from '../constants/text.tsx';
+import { PTRow } from '../../../common/components/PTRow.tsx';
+import { BuilderControls } from './BuilderControls.tsx';
+import { BuilderRender } from './BuilderRender.tsx';
 
 export const Builder: React.FC = () => {
   return (
@@ -31,6 +34,10 @@ export const Builder: React.FC = () => {
         usageTips={usageTips}
         title="Builder Method"
       >
+        <PTRow perRow="2-item">
+          <BuilderRender />
+          <BuilderControls />
+        </PTRow>
         <h1>Example</h1>
       </PatternLayout>
     </>

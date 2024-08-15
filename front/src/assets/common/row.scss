@@ -19,13 +19,16 @@
     width: calc(94% / 4);
     margin: 0.5rem;
   }
+  &--1-item > * {
+    width: calc(100%);
+  }
   &--2-item > * {
     width: calc(93% / 2);
     margin: 1rem;
   }
   &--3-item > * {
-    width: calc(91% / 3);
-    margin: 1rem;
+    width: calc(80% / 3);
+    margin: 0.8rem;
   }
   &--6-item > * {
     width: calc(88% / 6);

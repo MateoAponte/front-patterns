@@ -22,4 +22,36 @@
     width: auto;
     font-weight: 500;
   }
+
+  &--red {
+    background-color: $color-error;
+    color: #fff;
+    &:hover {
+      background-color: $color-error;
+      color: #fff;
+    }
+  }
+  &--blue {
+    background-color: $color-info;
+    color: #fff;
+    &:hover {
+      background-color: $color-info;
+      color: #fff;
+    }
+  }
+  &--green {
+    background-color: $color-success;
+    color: #fff;
+    &:hover {
+      background-color: $color-success;
+      color: #fff;
+    }
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    position: relative;
+    top: 2px;
+  }
 }

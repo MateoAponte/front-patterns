@@ -28,6 +28,7 @@ interface TextModel {
   isBolder?: Boolean;
   tag?: String;
   children?: React.ReactNode;
+  forId?: string;
 }
 
 export const Text: React.FC<TextModel> = ({
@@ -40,6 +41,7 @@ export const Text: React.FC<TextModel> = ({
   isBolder,
   isHighlight,
   tag,
+  forId,
   children,
 }) => {
   const getType = type ? `ptn-text--${type} ` : '';
@@ -50,9 +52,12 @@ export const Text: React.FC<TextModel> = ({
   const getCode = isCode ? 'ptn-text--code ' : '';
   const getBolder = isBolder ? 'ptn-text--bolder ' : '';
   const CustomTag = `${tag}` as keyof JSX.IntrinsicElements;
+  const getForId = forId ? { htmlFor: forId } : {};
+
   return (
     <CustomTag
       className={`ptn-text ${getType}${getModifier}${getSpaced}${getHeading}${getHighlight}${getCode}${getBolder}`}
+      {...getForId}
     >
       {text}
       {children}

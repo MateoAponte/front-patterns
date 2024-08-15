@@ -1,6 +1,6 @@
 import React from 'react';
 
-type PerRow = '4-item' | '2-item' | '6-item' | '3-item';
+type PerRow = '4-item' | '2-item' | '6-item' | '3-item' | '1-item';
 type VerticalAligment = 'start' | 'end' | 'center';
 
 interface RowModel {

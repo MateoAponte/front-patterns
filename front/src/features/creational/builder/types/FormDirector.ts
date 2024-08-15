@@ -4,27 +4,42 @@ import { FormFactory } from './FormFactory';
 export class FormDirector {
   private _form: FormFactory;
 
-  public setElementType({ form }) {
+  setElementType({ form }) {
     this._form = form;
   }
 
-  setDefaultInput(name: String): void {
-    this._form.setColor('black').setWidth(100).setPadding(5).setName(name);
-  }
-  setDefaultButton(name: String): void {
-    this._form.setColor('black').setWidth(100).setPadding(5).setName(name);
-  }
-  setDefaultTextArea(name: String): void {
-    this._form.setColor('black').setWidth(100).setPadding(5).setName(name);
-  }
+  setDefaultInput = () => {
+    this._form
+      .setColor('black')
+      .setWidth('100px')
+      .setPadding('5px')
+      .setName('Ingrese un texto');
+  };
+  setDefaultButton = () => {
+    this._form
+      .setColor('black')
+      .setWidth('100px')
+      .setPadding('3px 5px')
+      .setName('Botón');
+  };
+  setDefaultTextArea = () => {
+    this._form
+      .setColor('black')
+      .setWidth('100px')
+      .setPadding('5px')
+      .setName('Ingrese un texto');
+  };
 
-  setColor(color: String): void {
+  setColor = (color: string) => {
     this._form.setColor(color);
-  }
-  setWidth(width: Number): void {
+  };
+  setWidth = (width: string) => {
     this._form.setWidth(width);
-  }
-  setPadding(padding: Number): void {
+  };
+  setPadding = (padding: string) => {
     this._form.setPadding(padding);
-  }
+  };
+  setName = (name: string) => {
+    this._form.setName(name);
+  };
 }
