@@ -9,29 +9,27 @@ export interface Interpreter {
   id: String;
 }
 
-const interpreterOptions = (options) => {
-  console.log(options);
-
+const interpreterOptions = (element: FormElement) => {
   return {
     [FormElementType.INPUT]: {
       component: TextField,
       options: {
-        placeholder: options.name,
-        style: { ...options },
+        placeholder: element._options.name,
+        style: { ...element._options },
       },
     },
     [FormElementType.BUTTON]: {
       component: PTButton,
       options: {
-        text: options.name,
-        style: { ...options, color: 'white' },
+        text: element._options.name,
+        style: { ...element._options, color: 'white' },
       },
     },
     [FormElementType.TEXT_AREA]: {
       component: TextField,
       options: {
-        placeholder: options.name,
-        style: { ...options },
+        placeholder: element._options.name,
+        style: { ...element._options },
       },
     },
   };
@@ -39,11 +37,12 @@ const interpreterOptions = (options) => {
 
 export const interpreter = (elements: FormElement[]): Interpreter[] => {
   return elements.map((element) => {
-    const getElement = interpreterOptions(element._options)[element._type];
+    const getElement = interpreterOptions(element)[element._type];
     return {
       component: getElement.component,
       options: { ...element._options, ...getElement?.options },
       id: element._id,
+      type: element._type,
     };
   });
 };

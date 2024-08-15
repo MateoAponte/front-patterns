@@ -38,7 +38,6 @@ export const Builder: React.FC = () => {
           <BuilderRender />
           <BuilderControls />
         </PTRow>
-        <h1>Example</h1>
       </PatternLayout>
     </>
   );

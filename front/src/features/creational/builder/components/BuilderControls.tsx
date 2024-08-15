@@ -43,11 +43,19 @@ export const BuilderControls: React.FC = () => {
   });
 
   const buildElement = (type, isCustom) => {
-    FormManagement.setFactoryType(nameModel, type);
-    !isCustom
-      ? FormManagement.addElement()
-      : FormManagement.addElement(true, getOptions());
-    Observer.notifyObservers();
+    if (
+      !!widthModel &&
+      widthModel !== '0' &&
+      !!paddingModel &&
+      paddingModel !== '0' &&
+      !!nameModel
+    ) {
+      FormManagement.setFactoryType(nameModel, type);
+      !isCustom
+        ? FormManagement.addElement()
+        : FormManagement.addElement(true, getOptions());
+      Observer.notifyObservers();
+    }
   };
 
   const addTextArea = (isCustom) => {

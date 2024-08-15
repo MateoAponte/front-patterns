@@ -3,28 +3,22 @@ import { Column } from '../../../common/components/Column.tsx';
 import FormManagement from '../helpers/FormManagement.ts';
 import Observer from '../helpers/Observer.ts';
 import { Interpreter, interpreter } from '../helpers/Interpreter.ts';
-import { Divider } from '../../../common/components/Divider.tsx';
-import { FormElementType } from '../constants/FormTypes.ts';
+import { BuilderRenderItem } from './BuilderRenderItem.tsx';
+import { InputContent } from '../constants/Input.ts';
 
 export const BuilderRender: React.FC = () => {
   const [elements, setElements] = useState<Array<Interpreter>>([]);
-  const [content, setContent] = useState({});
+  const [content, setContent] = useState<InputContent>({
+    id: '',
+    value: '',
+  });
 
   const updateContent = (elements) => {
     const getContent = { ...content };
     elements.forEach((element) => {
-      getContent[element._id] = { value: '' };
+      getContent[element._id] = { value: getContent[element._id]?.value || '' };
     });
     setContent(getContent);
-  };
-  const setValue = (element, evt) => {
-    const getContent = { ...content };
-    getContent[element.id].value = evt;
-    setContent(getContent);
-  };
-
-  const isInput = (element) => {
-    return element._type === FormElementType.INPUT;
   };
 
   useEffect(() => {
@@ -43,16 +37,12 @@ export const BuilderRender: React.FC = () => {
     <>
       <Column>
         {elements.map((element) => (
-          <>
-            <element.component
-              {...element.options}
-              setInput={(evt) =>
-                !isInput && setValue(element, evt.target.value)
-              }
-            />
-            {content[element.id].value}
-            <Divider orientation="horizontal" small />
-          </>
+          <BuilderRenderItem
+            key={element.id}
+            element={element}
+            setContent={setContent}
+            content={content}
+          />
         ))}
       </Column>
     </>
