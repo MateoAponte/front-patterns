@@ -122,7 +122,7 @@ export const BuilderControls: React.FC = () => {
           <Select options={options} value={colorModel} onChange={onChange} />
         </PTRow>
         <Divider orientation="horizontal" small />
-        <Column>
+        <Column paddingless>
           <Text
             isBolder
             tag="label"
@@ -149,7 +149,7 @@ export const BuilderControls: React.FC = () => {
           </PTRow>
         </Column>
         <Divider orientation="horizontal" small show />
-        <Column>
+        <Column paddingless>
           <Text
             isBolder
             tag="label"

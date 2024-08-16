@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   justify-content: center;
-  gap: 1.5rem;
 
   &--start {
     align-items: flex-start;
@@ -22,12 +21,19 @@
   &--1-item > * {
     width: calc(100%);
   }
+
   &--2-item > * {
     width: calc(93% / 2);
+  }
+  &--2-item {
+    gap: 1.5rem;
   }
 
   &--3-item > * {
     width: calc(94% / 3);
+  }
+  &--3-item {
+    gap: 0.9rem;
   }
 
   &--6-item > * {

@@ -188,6 +188,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
               <MermaidReact id={randomId} mmd={applications.graph} />
             </PTRow>
           </PTSection>
+          <Divider orientation="horizontal" />
           {children}
         </Card>
       </PTSection>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from '../../../common/components/Text.tsx';
-import { BUILDER } from './graph.ts';
+import { BUILDER, BUILDER_EXAMPLE } from './graph.ts';
 
 export const mainText = {
   graph: BUILDER,
@@ -106,7 +106,7 @@ export const examples = [
   />,
 ];
 export const applications = {
-  graph: BUILDER,
+  graph: BUILDER_EXAMPLE,
   text: [
     {
       text: 'In this example we are going to mix three patterns ',
@@ -414,24 +414,32 @@ export const solution = [
   </Text>,
 ];
 export const usageTips = [
-  <Text
-    type="list"
-    text="Make sure that you can clearly define the common construction steps "
-    tag="li"
-  />,
-  <Text
-    type="list"
-    text="Make a easily implementation of the Method Chaining"
-    tag="li"
-  />,
-  <Text
-    type="list"
-    text="Make all the Builders Reusable to prevents coupling"
-    tag="li"
-  />,
-  <Text
-    type="list"
-    text="Prevent invalid states, make sure to return and reset the Director every time you Build a new Element"
-    tag="li"
-  />,
+  <Text type="list" text="" tag="li">
+    <Text type="common" text="Step by Step Clearly: " modifier="bold" />
+    <Text
+      type="common"
+      text="Make sure that you can clearly define the common construction steps  "
+    />
+  </Text>,
+  <Text type="list" text="" tag="li">
+    <Text type="common" text="Easy chaining: " modifier="bold" />
+    <Text
+      type="common"
+      text="Make a easily implementation of the Method Chaining, each method will return the Builder"
+    />
+  </Text>,
+  <Text type="list" text="" tag="li">
+    <Text type="common" text="Reusability: " modifier="bold" />
+    <Text
+      type="common"
+      text="Make all the Builders Reusable to prevents coupling"
+    />
+  </Text>,
+  <Text type="list" text="" tag="li">
+    <Text type="common" text="Reset the director: " modifier="bold" />
+    <Text
+      type="common"
+      text="Prevent invalid states, make sure to return and reset the Director every time you Build a new Element"
+    />
+  </Text>,
 ];

@@ -1,5 +1,14 @@
 import React from 'react';
 
-export const Column = ({ children }) => {
-  return <section className="column">{children}</section>;
+interface ColumnInterface {
+  children: React.ReactNode;
+  paddingless?: boolean;
+}
+
+export const Column: React.FC<ColumnInterface> = ({
+  children,
+  paddingless,
+}) => {
+  const hasPadding = paddingless ? ' column--paddingless ' : '';
+  return <section className={`column${hasPadding}`}>{children}</section>;
 };

@@ -9,13 +9,13 @@ flowchart TB
 	E -.->|Implements| B
 `;
 export const SHAPES = `
-flowchart TB
+flowchart RL
   A[Canvas]
   A -. Use .-> B[ShapesFactory]
   B -. Depends .-> C[Shape]
-  BA[CircleFactory] ---> B
-  BB[SquareFactory] ---> B
-  BC[TriangleFactory] ---> B
+  BA[CircleFactory] --> B
+  BB[SquareFactory] --> B
+  BC[TriangleFactory] --> B
   CA[CircleShape] --> C
   CB[SquareShape] --> C
   CC[TriangleShape] --> C
@@ -23,5 +23,5 @@ flowchart TB
   BA -.-> CA
   BB -.-> CB
   BC -.-> CC
-  end
+end
 `;
