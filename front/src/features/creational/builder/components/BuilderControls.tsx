@@ -72,6 +72,10 @@ export const BuilderControls: React.FC = () => {
     <>
       <Column>
         <PTRow perRow="1-item">
+          <Text isBolder tag="h3" text="Building" type="heading" />
+          <Divider orientation="horizontal" show />
+        </PTRow>
+        <PTRow perRow="1-item">
           <Text isBolder tag="label" text="Name: " type="common" forId="name" />
           <TextField
             id="name"

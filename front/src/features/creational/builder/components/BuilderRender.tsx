@@ -5,6 +5,8 @@ import Observer from '../helpers/Observer.ts';
 import { Interpreter, interpreter } from '../helpers/Interpreter.ts';
 import { BuilderRenderItem } from './BuilderRenderItem.tsx';
 import { InputContent } from '../constants/Input.ts';
+import { Divider } from '../../../common/components/Divider.tsx';
+import { Text } from '../../../common/components/Text.tsx';
 
 export const BuilderRender: React.FC = () => {
   const [elements, setElements] = useState<Array<Interpreter>>([]);
@@ -36,12 +38,15 @@ export const BuilderRender: React.FC = () => {
   return (
     <>
       <Column>
-        {elements.map((element) => (
+        <Text isBolder tag="h3" text="Render" type="heading" />
+        <Divider orientation="horizontal" show />
+        {elements.map((element, index) => (
           <BuilderRenderItem
             key={element.id}
             element={element}
             setContent={setContent}
             content={content}
+            index={index}
           />
         ))}
       </Column>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from '../../../common/components/Text.tsx';
 import { BUILDER } from './graph.ts';
-import text from '../../factory/contants/text.tsx';
 
 export const mainText = {
   graph: BUILDER,
@@ -108,7 +107,93 @@ export const examples = [
 ];
 export const applications = {
   graph: BUILDER,
-  text: [],
+  text: [
+    {
+      text: 'In this example we are going to mix three patterns ',
+    },
+    {
+      text: 'The Builder Method,  Observer Pattern and Factory Method. ',
+      isHighlight: true,
+    },
+    {
+      text: 'The main Elements are the ',
+    },
+    {
+      text: 'P (Form Controllers Components)',
+      isCode: true,
+    },
+    {
+      text: 'and ',
+    },
+    {
+      text: 'Q (Form Render Components)',
+      isCode: true,
+    },
+    {
+      text: 'each one is subscribed to Observer Method to notify the Building of a new Form Element. ',
+    },
+    {
+      text: '',
+      isBlock: true,
+    },
+    {
+      text: 'P (Form Controller Component)',
+      isCode: true,
+    },
+    {
+      text: 'execute the ',
+    },
+    {
+      text: 'B (Form Management)',
+      isCode: true,
+    },
+    {
+      text: 'helper that initializes ',
+    },
+    {
+      text: 'C (Form Director)',
+      isCode: true,
+    },
+    {
+      text: 'and manages ',
+    },
+    {
+      text: 'E (Form Elements)',
+      isCode: true,
+    },
+    {
+      text: '',
+      isBlock: true,
+    },
+    {
+      text: 'C (Form Director)',
+      isCode: true,
+    },
+    {
+      text: 'determines the element that the factory will build and set step-by-step the values of the elements that will be created. ',
+    },
+    {
+      text: '',
+      isBlock: true,
+    },
+    {
+      text: 'All the elements that will be created are saved in the ',
+    },
+    {
+      text: 'B (Form Management)',
+      isCode: true,
+    },
+    {
+      text: 'Helper. To finish all the elements will be rendered by ',
+    },
+    {
+      text: 'Q (Form Render Component)',
+      isCode: true,
+    },
+    {
+      text: 'that will be notified even time the elements are created. ',
+    },
+  ],
 };
 export const helper =
   'An pattern to create complex objects by using a step-by-step process.';

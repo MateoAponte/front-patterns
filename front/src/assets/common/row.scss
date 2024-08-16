@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   justify-content: center;
+  gap: 1.5rem;
 
   &--start {
     align-items: flex-start;
@@ -17,22 +18,20 @@
 
   &--4-item > * {
     width: calc(94% / 4);
-    margin: 0.5rem;
   }
   &--1-item > * {
     width: calc(100%);
   }
   &--2-item > * {
     width: calc(93% / 2);
-    margin: 1rem;
   }
+
   &--3-item > * {
-    width: calc(80% / 3);
-    margin: 0.8rem;
+    width: calc(94% / 3);
   }
+
   &--6-item > * {
     width: calc(88% / 6);
-    margin: 0.2rem;
   }
 
   .mermaid ~ * {

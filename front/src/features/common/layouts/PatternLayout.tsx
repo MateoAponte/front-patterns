@@ -49,6 +49,8 @@ const TextParsed = ({ text }) => {
       {text.map((item: TextInterface) => (
         <Text
           isHighlight={item.isHighlight}
+          isCode={item.isCode}
+          isBlock={item.isBlock}
           text={item.text}
           spaced={text.spaced}
           type="common"

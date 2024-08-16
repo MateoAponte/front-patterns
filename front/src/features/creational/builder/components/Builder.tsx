@@ -16,6 +16,7 @@ import {
 import { PTRow } from '../../../common/components/PTRow.tsx';
 import { BuilderControls } from './BuilderControls.tsx';
 import { BuilderRender } from './BuilderRender.tsx';
+import { Divider } from '../../../common/components/Divider.tsx';
 
 export const Builder: React.FC = () => {
   return (

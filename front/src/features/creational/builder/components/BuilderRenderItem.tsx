@@ -9,12 +9,14 @@ interface BuilderRenderItemModel {
   element: Interpreter;
   setContent: Function;
   content: InputContent;
+  index: number;
 }
 
 export const BuilderRenderItem: React.FC<BuilderRenderItemModel> = ({
   element,
   setContent,
   content,
+  index,
 }) => {
   const showValue = (element) => {
     const getElement = { ...element };
@@ -36,6 +38,10 @@ export const BuilderRenderItem: React.FC<BuilderRenderItemModel> = ({
         </div>
       );
     }
+  };
+
+  const getIndex = () => {
+    return `${index + 1}. `;
   };
 
   const setValue = (element, evt) => {
@@ -61,8 +67,16 @@ export const BuilderRenderItem: React.FC<BuilderRenderItemModel> = ({
 
   return (
     <>
-      <element.component {...element.options} {...getEvent(element)} />
-      {isInput(element)}
+      <Text
+        isBolder
+        tag="h2"
+        text={getIndex()}
+        type="heading"
+        modifier="italic"
+      >
+        <element.component {...element.options} {...getEvent(element)} />
+        {isInput(element)}
+      </Text>
       <Divider orientation="horizontal" small />
     </>
   );

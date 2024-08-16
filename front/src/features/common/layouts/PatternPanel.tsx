@@ -29,7 +29,11 @@ export const PatternPanel: React.FC<PatternPanelInterface> = ({
   };
 
   return (
-    <PTSection title="Patrones creacionales" description={description}>
+    <PTSection
+      title="Patrones creacionales"
+      helper={description}
+      headingType="header"
+    >
       <PTRow className="pattern-content" perRow="3-item">
         {creationalRoutes.map((item: RoutesModel, index) => (
           <Link to={item.path}>

@@ -48,14 +48,15 @@ export const PTSection: React.FC<PanelModel> = ({
           text={title}
           type="heading"
           spaced="spaced-1"
-          heading="h3"
+          heading="h1"
           modifier={isSubtitle ? 'bold' : 'bolder'}
+          isHighlight
         />
       </div>
       {hasHelper}
-      {description && (
+      {/* {description && (
         <Text text={description} type="common" spaced="spaced-3" />
-      )}
+      )} */}
       {!!getHeadingType && hasDivider && <Divider orientation="horizontal" />}
       <div className="ptn-section__content">{children}</div>
     </div>

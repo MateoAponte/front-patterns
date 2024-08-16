@@ -9,15 +9,15 @@
 
   &__item {
     padding: 10px 20px;
-    color: #fff; /* Color del texto en el sidebar */
+    color: $color-sidebar-text; /* Color del texto en el sidebar */
     text-decoration: none;
     display: block;
     &:hover {
-      background-color: #555; /* Color de fondo al pasar el cursor */
+      background-color: #a7626b; /* Color de fondo al pasar el cursor */
     }
   }
   & > h1 {
-    color: #fff; /* Color del texto del título */
+    color: $color-sidebar-text; /* Color del texto del título */
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
