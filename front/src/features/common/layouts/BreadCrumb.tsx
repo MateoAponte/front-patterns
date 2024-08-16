@@ -23,13 +23,25 @@ export const BreadCrumb: React.FC = () => {
         return (
           <>
             <NavLink to={path.redirect || '/'}>
-              <Text text={getPathName} type="helper" spaced="spaced-1" tag="span" modifier="italic" />
+              <Text
+                text={getPathName}
+                type="helper"
+                spaced="spaced-1"
+                tag="span"
+                modifier="italic"
+              />
             </NavLink>
-            <Text text={separator} type="helper" spaced="spaced-1" tag="span" modifier="italic" />
+            <Text
+              text={separator}
+              type="helper"
+              spaced="spaced-1"
+              tag="span"
+              modifier="italic"
+            />
           </>
         );
       })}
-      <Divider orientation="horizontal" />
+      <Divider orientation="horizontal" show />
     </section>
   );
 };
