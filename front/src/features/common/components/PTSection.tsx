@@ -10,10 +10,12 @@ interface PanelModel {
   description?: String;
   headingType?: HeadingType;
   hasDivider?: Boolean;
+  showDivider?: Boolean;
   helper?: String;
   icon?: React.ReactNode;
   maxHeight?: string;
   overflow?: Boolean;
+  bordered?: Boolean;
 }
 
 export const PTSection: React.FC<PanelModel> = ({
@@ -22,16 +24,23 @@ export const PTSection: React.FC<PanelModel> = ({
   description,
   headingType,
   hasDivider,
+  showDivider,
   helper,
   icon,
+  bordered,
   maxHeight = '',
   overflow,
 }) => {
   const getHeadingType = !!headingType ? `ptn-section__${headingType}` : '';
   const isSubtitle = headingType === 'subheader';
-  const hasOverflow = overflow ? `ptn-section--overflow` : '';
+  const hasOverflow = overflow ? `ptn-section--overflow ` : '';
+  const hasBorder = bordered ? `ptn-section--bordered ` : '';
   const hasHelper = !!helper ? (
-    <div className="ptn-section__helper">
+    <div
+      className={`ptn-section__helper ${
+        showDivider && 'ptn-section__helper--marginless'
+      }`}
+    >
       <Text text={helper || ''} type="helper" spaced="spaced-1" heading="h5" />
     </div>
   ) : (
@@ -39,7 +48,7 @@ export const PTSection: React.FC<PanelModel> = ({
   );
   return (
     <div
-      className={`ptn-section ${hasOverflow}`}
+      className={`ptn-section ${hasOverflow}${hasBorder}`}
       style={{ maxHeight: maxHeight }}
     >
       <div className={getHeadingType}>
@@ -57,7 +66,9 @@ export const PTSection: React.FC<PanelModel> = ({
       {/* {description && (
         <Text text={description} type="common" spaced="spaced-3" />
       )} */}
-      {!!getHeadingType && hasDivider && <Divider orientation="horizontal" />}
+      {!!getHeadingType && hasDivider && (
+        <Divider orientation="horizontal" show={showDivider} />
+      )}
       <div className="ptn-section__content">{children}</div>
     </div>
   );

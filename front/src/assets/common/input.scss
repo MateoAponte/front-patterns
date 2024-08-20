@@ -3,12 +3,13 @@
   border-radius: 4px; /* Bordes redondeados */
   padding: 0.2rem 0.6rem; /* Padding interno */
   max-height: 30px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   outline: none; /* Eliminar contorno al hacer foco */
   transition: border-color 0.3s;
   width: 100%;
   min-height: 35px;
   color: $color-text;
+  font-weight: 300;
 }
 
 div[class$='control'] {

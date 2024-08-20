@@ -1,8 +1,10 @@
 import { RoutesModel } from '../../common/interfaces/RoutesInterfaces';
-import { Builder } from '../builder/components/Builder.tsx';
 import { CreationalMain } from '../components/CreationalMain.tsx';
+
+import { Builder } from '../builder/components/Builder.tsx';
 import { Factory } from '../factory/components/Factory.tsx';
 import { Singleton } from '../singleton/components/Singleton.tsx';
+import { Prototype } from '../prototype/components/Prototype.tsx';
 
 export const CreationalPaths: RoutesModel[] = [
   {
@@ -28,7 +30,7 @@ export const CreationalPaths: RoutesModel[] = [
   {
     path: 'prototype',
     alias: 'Prototype',
-    component: Factory,
+    component: Prototype,
   },
   {
     path: 'builder',

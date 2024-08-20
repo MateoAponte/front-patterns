@@ -29,7 +29,8 @@ class HatchbackProductionLine implements productionLine {
     return this;
   }
   resetProductionLine(): void {
-    this.hatchbackCar = this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
+    this.hatchbackCar =
+      this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
   }
   build(): Car {
     this.setModel();
@@ -65,7 +66,8 @@ class SedanProductionLine implements CarProductionLine {
     return this;
   }
   resetProductionLine(): void {
-    this.sedanCar = this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
+    this.sedanCar =
+      this.internalModel === 'mastodon' ? new MastodonCar() : new RhinoCar();
     console.log(this.internalModel);
   }
   build(): Car {
@@ -157,7 +159,9 @@ class Director {
 }
 
 const appBuilder = (director: Director) => {
-  const mastodonSedanProductionLine = new SedanProductionLine({ model: 'mastodon' });
+  const mastodonSedanProductionLine = new SedanProductionLine({
+    model: 'mastodon',
+  });
 
   director.setProductionLine(mastodonSedanProductionLine);
   director.buildCvtEdition();
@@ -174,3 +178,64 @@ const appBuilder = (director: Director) => {
 appBuilder(new Director());
 
 // Ejemplo
+
+interface Cloneable {
+  clone(): Cloneable;
+}
+
+class PTDocument implements Cloneable {
+  title: string;
+  content: string;
+  author: string;
+  creationDate: Date;
+
+  constructor(
+    title: string,
+    content: string,
+    author: string,
+    creationDate: Date
+  ) {
+    this.title = title;
+    this.content = content;
+    this.author = author;
+    this.creationDate = creationDate;
+  }
+
+  // Método para clonar el documento
+  clone(): PTDocument {
+    return new PTDocument(
+      this.title,
+      this.content,
+      this.author,
+      new Date(this.creationDate)
+    );
+  }
+
+  // Método para mostrar el content del documento (solo para visualización)
+  showDocument(): void {
+    console.log(`Title: ${this.title}`);
+    console.log(`Content: ${this.content}`);
+    console.log(`Author: ${this.author}`);
+    console.log(`Creation Date: ${this.creationDate.toDateString()}`);
+  }
+}
+
+// Uso del patrón Prototype
+const originalDocument = new PTDocument(
+  'PTDocument Original',
+  'Este es el content del documento original.',
+  'Juan Pérez',
+  new Date()
+);
+
+// Clonar el documento original para crear un nuevo documento
+const clonedDocument = originalDocument.clone();
+clonedDocument.title = 'PTDocument Clonado';
+clonedDocument.author = 'Ana López';
+
+// Mostrar ambos documentos para comparar
+console.log('Original:');
+originalDocument.showDocument();
+
+console.log('Cloned:');
+clonedDocument.showDocument();

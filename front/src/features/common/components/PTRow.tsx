@@ -8,22 +8,25 @@ interface RowModel {
   perRow: PerRow;
   verticalAligment?: VerticalAligment;
   className?: string;
+  isCenter?: boolean;
 }
 
 export const PTRow: React.FC<RowModel> = ({
   children,
   perRow,
   verticalAligment,
-  className,
+  className = '',
+  isCenter,
 }) => {
-  const getPerRow = perRow ? 'ptn-row--' + perRow : '';
+  const getPerRow = perRow ? `ptn-row--${perRow} ` : '';
+  const getCenteredContent = isCenter ? `ptn-row--centered ` : '';
   const getVerticalCenter = verticalAligment
-    ? 'ptn-row--' + verticalAligment
+    ? `ptn-row--${verticalAligment} `
     : '';
   return (
     <>
       <section
-        className={`ptn-row ${getPerRow} ${getVerticalCenter} ${className}`}
+        className={`ptn-row ${className} ${getPerRow}${getVerticalCenter}${getCenteredContent}`}
       >
         {children}
       </section>

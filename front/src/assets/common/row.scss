@@ -43,4 +43,9 @@
   .mermaid ~ * {
     max-width: 100%;
   }
+
+  &--centered {
+    justify-content: center;
+    padding: 0 20%;
+  }
 }
