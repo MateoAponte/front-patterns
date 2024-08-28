@@ -89,4 +89,12 @@
     font-weight: 700;
     // border-radius: 2px; /* Bordes redondeados */
   }
+
+  &--link {
+    color: $color-link;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
 }

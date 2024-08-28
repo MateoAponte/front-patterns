@@ -16,8 +16,8 @@
     text-transform: uppercase;
     width: calc(100%);
     color: $color-title;
-    padding: 2rem 1rem 0px;
-    margin-top: 1rem;
+    padding: 1rem 1rem 0px;
+    margin-top: 0.5rem;
     .ptn-text--heading {
       color: $color-title;
     }
@@ -70,5 +70,10 @@
     padding: 0 1rem 2rem;
     border: 1px solid $color-code;
     border-radius: 8px;
+  }
+
+  &--top-adjust {
+    margin-top: -22rem;
+    margin-bottom: 2rem;
   }
 }

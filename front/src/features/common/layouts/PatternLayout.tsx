@@ -18,6 +18,7 @@ import { FaFlagCheckered } from 'react-icons/fa6';
 import { FaRegFileCode } from 'react-icons/fa6';
 import { MdTipsAndUpdates } from 'react-icons/md';
 import { CodePreview } from '../components/CodePreview.tsx';
+import { CONTENT_LINKS } from '../constants/LayoutContent.ts';
 
 interface GraphDescription {
   text: Array<TextInterface>;
@@ -75,15 +76,31 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
   issue,
   solution,
   usageTips,
-  exampleRow = false,
+  exampleRow = true,
 }) => {
   let randomId = `id-ptn-${Math.floor(Math.random() * 100 + 1)}`;
   let graphicExample = <MermaidReact id={randomId} mmd={applications.graph} />;
 
   return (
     <>
-      <PTSection title={title} helper={helper} headingType="header">
-        <Card>
+      <div className="ptn-content-table">
+        <div className="ptn-content-table__caps">
+          <Text tag="h2" text="Content" type="heading" />
+          {CONTENT_LINKS.map((item: string) => (
+            <div className="ptn-content-table__item">
+              <Text
+                tag="a"
+                href={`#${item.replace(/\s/g, '-').toLowerCase()}`}
+                isLink
+                text={item}
+                type="list"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <PTSection title={title} helper={helper} headingType="header" isPatternLayout>
+        <Card id="what-is">
           <Column>
             <PTSection
               title="What is?"
@@ -100,7 +117,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </Column>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="the-issue">
           <Column>
             <PTSection
               title="The issue"
@@ -112,7 +129,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </Column>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="how-to-solve">
           <Column>
             <PTSection
               title="How to solve?"
@@ -124,7 +141,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </Column>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="pros">
           <PTRow perRow="2-item">
             <PTSection title="Pros" headingType="subheader" icon={<FaCheck />}>
               <List list={pros} />
@@ -135,7 +152,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </PTRow>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="when-to-use">
           <PTRow perRow="2-item">
             <PTSection
               title="When to use?"
@@ -154,7 +171,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </PTRow>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="code">
           <PTSection
             title="Code"
             headingType="subheader"
@@ -166,7 +183,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </PTSection>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="usage-tips">
           <Column>
             <PTSection
               title="Usage tips"
@@ -178,7 +195,7 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
           </Column>
         </Card>
         <Divider orientation="horizontal" show={false} />
-        <Card>
+        <Card id="example">
           <PTSection
             title="Example"
             headingType="subheader"

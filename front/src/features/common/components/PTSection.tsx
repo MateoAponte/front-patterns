@@ -16,6 +16,8 @@ interface PanelModel {
   maxHeight?: string;
   overflow?: Boolean;
   bordered?: Boolean;
+  id?: string;
+  isPatternLayout?: boolean;
 }
 
 export const PTSection: React.FC<PanelModel> = ({
@@ -30,11 +32,14 @@ export const PTSection: React.FC<PanelModel> = ({
   bordered,
   maxHeight = '',
   overflow,
+  id,
+  isPatternLayout,
 }) => {
   const getHeadingType = !!headingType ? `ptn-section__${headingType}` : '';
   const isSubtitle = headingType === 'subheader';
   const hasOverflow = overflow ? `ptn-section--overflow ` : '';
   const hasBorder = bordered ? `ptn-section--bordered ` : '';
+  const hasPatternLayout = isPatternLayout ? `ptn-section--top-adjust` : '';
   const hasHelper = !!helper ? (
     <div
       className={`ptn-section__helper ${
@@ -48,7 +53,7 @@ export const PTSection: React.FC<PanelModel> = ({
   );
   return (
     <div
-      className={`ptn-section ${hasOverflow}${hasBorder}`}
+      className={`ptn-section ${hasOverflow}${hasBorder}${hasPatternLayout}`}
       style={{ maxHeight: maxHeight }}
     >
       <div className={getHeadingType}>
@@ -57,9 +62,11 @@ export const PTSection: React.FC<PanelModel> = ({
           text={title}
           type="heading"
           spaced="spaced-1"
+          tag={isSubtitle ? 'h3' : 'h1'}
           heading="h1"
           modifier={isSubtitle ? 'bold' : 'bolder'}
           isHighlight
+          id={id}
         />
       </div>
       {hasHelper}

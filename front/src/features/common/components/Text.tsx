@@ -27,6 +27,9 @@ interface TextModel {
   isCode?: Boolean;
   isBolder?: Boolean;
   isBlock?: Boolean;
+  isLink?: Boolean;
+  href?: string;
+  id?: string;
   tag?: String;
   children?: React.ReactNode;
   forId?: string;
@@ -41,6 +44,9 @@ export const Text: React.FC<TextModel> = ({
   isCode,
   isBolder,
   isHighlight,
+  isLink,
+  href,
+  id,
   isBlock,
   tag,
   forId,
@@ -51,16 +57,21 @@ export const Text: React.FC<TextModel> = ({
   const getSpaced = spaced ? `ptn-text--${spaced} ` : '';
   const getHeading = heading ? `ptn-text--${heading} ` : '';
   const getHighlight = isHighlight ? 'ptn-text--highlight ' : '';
+  const getLink = isLink ? 'ptn-text--link ' : '';
   const getCode = isCode ? 'ptn-text--code ' : '';
   const getBolder = isBolder ? 'ptn-text--bolder ' : '';
   const CustomTag = `${tag}` as keyof JSX.IntrinsicElements;
   const getBlock = isBlock ? 'ptn-text--block ' : '';
   const getForId = forId ? { htmlFor: forId } : {};
 
+  const getHref = isLink ? { href: href } : {};
+
   return (
     <CustomTag
-      className={`ptn-text ${getType}${getModifier}${getSpaced}${getHeading}${getHighlight}${getCode}${getBolder}${getBlock}`}
+      className={`ptn-text ${getType}${getModifier}${getSpaced}${getHeading}${getHighlight}${getCode}${getBolder}${getBlock}${getLink}`}
       {...getForId}
+      {...getHref}
+      id={id}
     >
       {text}
       {children}

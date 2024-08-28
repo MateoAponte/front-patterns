@@ -19,7 +19,7 @@ body {
 
 .App {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 main {
@@ -46,4 +46,9 @@ main {
 a {
   text-decoration: none;
   color: unset;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
