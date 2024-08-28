@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { PatternLayout } from '../../../common/layouts/PatternLayout.tsx';
 import { PTRow } from '../../../common/components/PTRow.tsx';
 import { Column } from '../../../common/components/Column.tsx';

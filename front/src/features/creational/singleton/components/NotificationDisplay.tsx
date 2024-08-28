@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import notificationService from '../helpers/notificationService.ts';
 import { countStore } from '../../../common/store/index.ts';
 import { Text } from '../../../common/components/Text.tsx';
