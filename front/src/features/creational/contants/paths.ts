@@ -5,6 +5,7 @@ import { Builder } from '../builder/components/Builder.tsx';
 import { Factory } from '../factory/components/Factory.tsx';
 import { Singleton } from '../singleton/components/Singleton.tsx';
 import { Prototype } from '../prototype/components/Prototype.tsx';
+import { Abstract } from '../abstract/components/Abstract.tsx';
 
 export const CreationalPaths: RoutesModel[] = [
   {
@@ -20,7 +21,7 @@ export const CreationalPaths: RoutesModel[] = [
   {
     path: 'abstract',
     alias: 'Abstract Factory',
-    component: Factory,
+    component: Abstract,
   },
   {
     path: 'singleton',

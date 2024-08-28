@@ -35,6 +35,7 @@ interface PatternLayoutModel extends ChildrenInterface {
   examples: Array<React.ReactNode>;
   usageTips: Array<React.ReactNode>;
   applications: GraphDescription;
+  exampleRow: boolean;
   helper?: string;
   code?: string[];
 }
@@ -74,8 +75,10 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
   issue,
   solution,
   usageTips,
+  exampleRow = false,
 }) => {
   let randomId = `id-ptn-${Math.floor(Math.random() * 100 + 1)}`;
+  let graphicExample = <MermaidReact id={randomId} mmd={applications.graph} />;
 
   return (
     <>
@@ -181,12 +184,17 @@ export const PatternLayout: React.FC<PatternLayoutModel> = ({
             headingType="subheader"
             icon={<FaRegFileCode />}
           >
-            <PTRow perRow="2-item" verticalAligment="start">
+            <PTRow
+              perRow={!exampleRow ? '1-item' : '2-item'}
+              verticalAligment="start"
+              isCenter={false}
+            >
               <div>
                 <TextParsed text={applications.text} />
               </div>
-              <MermaidReact id={randomId} mmd={applications.graph} />
+              {exampleRow && graphicExample}
             </PTRow>
+            {!exampleRow && graphicExample}
           </PTSection>
           <Divider orientation="horizontal" />
           {children}
