@@ -1,15 +1,12 @@
 import { Creational } from '../../creational/components/Creational.tsx';
 import { Home } from '../../home/components/Home.tsx';
-import { Factory } from '../../creational/factory/components/Factory.tsx';
-import { CreationalMain } from '../../creational/components/CreationalMain.tsx';
-import { Singleton } from '../../creational/singleton/components/Singleton.tsx';
 import { CreationalPaths } from '../../creational/contants/paths.ts';
 import { RoutesModel } from '../interfaces/RoutesInterfaces.ts';
 
 export const ROUTES: Array<RoutesModel> = [
   {
     path: 'creational',
-    alias: 'Patrones creacionales',
+    alias: 'Patrones Creacionales',
     component: Creational,
     nested: CreationalPaths,
   },

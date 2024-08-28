@@ -13,7 +13,10 @@
     text-decoration: none;
     display: block;
     &:hover {
-      background-color: #a7626b; /* Color de fondo al pasar el cursor */
+      background-color: darken(
+        $color-sidebar,
+        5%
+      ); /* Color de fondo al pasar el cursor */
     }
   }
   & > h1 {

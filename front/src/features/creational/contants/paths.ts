@@ -10,7 +10,7 @@ import { Abstract } from '../abstract/components/Abstract.tsx';
 export const CreationalPaths: RoutesModel[] = [
   {
     path: '',
-    alias: 'Patrones',
+    alias: 'index',
     component: CreationalMain,
   },
   {

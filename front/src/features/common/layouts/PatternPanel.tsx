@@ -36,7 +36,7 @@ export const PatternPanel: React.FC<PatternPanelInterface> = ({
     >
       <PTRow className="pattern-content" perRow="3-item">
         {creationalRoutes.map((item: RoutesModel, index) => (
-          <Link to={item.path}>
+          <Link to={item.path} key={index}>
             <Card key={index}>
               <CardHeader>
                 <span className="card__icon">
