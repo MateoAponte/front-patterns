@@ -13,9 +13,6 @@ const renderRoutes = (routes) => {
     </>
   ));
 };
-// return routes.map((route, index) => {
-//   return <route.component />;
-// });
 
 function App() {
   return (

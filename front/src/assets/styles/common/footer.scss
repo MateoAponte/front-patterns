@@ -1,0 +1,15 @@
+.footer {
+  padding: 1rem 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-bold;
+  text-align: center;
+  font-size: 1rem;
+
+  .ptn-text {
+    color: $color-sidebar-text !important;
+    font-weight: 300;
+  }
+}

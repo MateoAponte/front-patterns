@@ -1,0 +1,120 @@
+.home {
+  width: 100%;
+
+  .column {
+    padding: 0 13vw 6rem;
+
+    &:nth-child(even) {
+      background-color: $color-sidebar-text;
+      border-top: 1px solid $color-line;
+      border-bottom: 1px solid $color-line;
+    }
+
+    .card {
+      margin: 0 0.3rem;
+      box-shadow: none;
+      border: 1px solid $color-border;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+
+      &__content {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        .ptn-text {
+          font-size: 1rem;
+          line-height: 1.8rem;
+        }
+        .ptn-text--heading {
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+        }
+      }
+      &__header {
+        margin-bottom: 0px;
+        justify-content: center;
+        border: none;
+        text-align: center;
+        color: $color-title;
+
+        svg {
+          font-size: 5rem;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .ptn-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center;
+    .ptn-text--heading {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .home__section {
+    .ptn-section__content {
+      padding: 0 5vw;
+    }
+
+    &--top-spacing {
+      margin-top: 6rem;
+    }
+
+    .ptn-button {
+      margin-top: 1rem;
+      font-weight: 500;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &-backdrop {
+      position: absolute;
+      z-index: 5;
+      background-color: rgba(#000, 0.4);
+      width: 100%;
+      height: 55vh;
+    }
+    &-image {
+      position: relative;
+      height: 55vh;
+      width: calc(100vw - 250px);
+      background-image: url('../../../assets/images/background.jpg');
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-content {
+      position: absolute;
+      left: 20vw;
+      top: 15vh;
+      z-index: 10;
+      width: 60vw;
+
+      .ptn-text {
+        color: $color-sidebar-text;
+        text-shadow: 1px 1px 1px #000;
+      }
+
+      h1.ptn-text {
+        font-size: 3rem;
+        line-height: 3.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-family: 'Epilogue', sans-serif;
+      }
+    }
+  }
+}

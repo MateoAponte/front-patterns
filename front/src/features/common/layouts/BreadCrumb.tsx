@@ -6,9 +6,10 @@ import { Divider } from '../components/Divider.tsx';
 
 export const BreadCrumb: React.FC = () => {
   const location = useLocation();
+  if (location.pathname === '/') return null;
   const paths = location.pathname.split('/');
-  console.log(paths.filter((path) => path !== ''));
 
+  if (paths.length === 0) return null;
   let pathsRedirect = paths.map((path) => {
     const pathInfo = getRedirectPath(path);
     if (pathInfo.alias === 'index')

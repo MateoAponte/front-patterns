@@ -16,6 +16,7 @@ interface PanelModel {
   maxHeight?: string;
   overflow?: Boolean;
   bordered?: Boolean;
+  className?: string;
   id?: string;
   isPatternLayout?: boolean;
 }
@@ -34,18 +35,17 @@ export const PTSection: React.FC<PanelModel> = ({
   overflow,
   id,
   isPatternLayout,
+  className,
 }) => {
   const getHeadingType = !!headingType ? `ptn-section__${headingType}` : '';
   const isSubtitle = headingType === 'subheader';
   const hasOverflow = overflow ? `ptn-section--overflow ` : '';
   const hasBorder = bordered ? `ptn-section--bordered ` : '';
-  const hasPatternLayout = isPatternLayout ? `ptn-section--top-adjust` : '';
+  const hasPatternLayout = isPatternLayout ? `ptn-section--top-adjust ` : '';
+  const hasClassName = !!className ? ` ${className} ` : '';
+  const includeDivider = showDivider ? ` ptn-section__helper--marginless` : '';
   const hasHelper = !!helper ? (
-    <div
-      className={`ptn-section__helper ${
-        showDivider && 'ptn-section__helper--marginless'
-      }`}
-    >
+    <div className={`ptn-section__helper${includeDivider}`}>
       <Text text={helper || ''} type="helper" spaced="spaced-1" heading="h5" />
     </div>
   ) : (
@@ -53,7 +53,7 @@ export const PTSection: React.FC<PanelModel> = ({
   );
   return (
     <div
-      className={`ptn-section ${hasOverflow}${hasBorder}${hasPatternLayout}`}
+      className={`ptn-section ${hasOverflow}${hasBorder}${hasPatternLayout}${hasClassName}`}
       style={{ maxHeight: maxHeight }}
     >
       <div className={getHeadingType}>
