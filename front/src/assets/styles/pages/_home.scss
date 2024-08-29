@@ -5,7 +5,7 @@
     padding: 0 13vw 6rem;
 
     &:nth-child(even) {
-      background-color: $color-sidebar-text;
+      background-color: $color-white-text;
       border-top: 1px solid $color-line;
       border-bottom: 1px solid $color-line;
     }
@@ -104,7 +104,7 @@
       width: 60vw;
 
       .ptn-text {
-        color: $color-sidebar-text;
+        color: $color-white-text;
         text-shadow: 1px 1px 1px #000;
       }
 
